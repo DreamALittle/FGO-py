@@ -12,7 +12,7 @@ class Android(Airtest):
             self.name=None
             return
         try:
-            super().__init__(name,**({'cap_method':CAP_METHOD.JAVACAP}|kwargs))
+            super().__init__(name,**({'cap_method':CAP_METHOD.JAVACAP}))
             self.rotation_watcher.reg_callback(lambda _:self.refreshOrientation())
         except Exception as e:
             logger.exception(e)
