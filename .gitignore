@@ -15,6 +15,10 @@ backup/
 build/
 dist/
 Snipaste*
+FuseLog*
+Capture*
+SpecialDrop*
+Log*.txt
 *Temp*
 help/
 temp/

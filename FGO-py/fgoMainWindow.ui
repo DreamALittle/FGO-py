@@ -27,6 +27,9 @@
         <property name="statusTip">
          <string>选取编队,若需新建或删除请直接更改teamup文件</string>
         </property>
+        <property name="maxVisibleItems">
+         <number>17</number>
+        </property>
        </widget>
       </item>
       <item>
@@ -37,7 +40,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="TXT_TEAM">
+       <widget class="QSpinBox" name="TXT_TEAM">
         <property name="minimumSize">
          <size>
           <width>20</width>
@@ -56,11 +59,14 @@
         <property name="statusTip">
          <string>所选编队在队伍列表中的位置,从左到右1-10,0为无效</string>
         </property>
-        <property name="maxLength">
-         <number>2</number>
-        </property>
         <property name="alignment">
          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+        <property name="buttonSymbols">
+         <enum>QAbstractSpinBox::NoButtons</enum>
+        </property>
+        <property name="maximum">
+         <number>10</number>
         </property>
        </widget>
       </item>
@@ -137,20 +143,7 @@
         <item row="0" column="1">
          <layout class="QHBoxLayout" name="LAYOUT_INFO_TEAM_0">
           <item>
-           <widget class="QRadioButton" name="RBT_FRIEND_0">
-            <property name="statusTip">
-             <string>助战的位置,助战的技能设置不会生效</string>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <attribute name="buttonGroup">
-             <string notr="true">BTG_FRIEND</string>
-            </attribute>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="TXT_SKILL_0_0_0">
+           <widget class="QSpinBox" name="TXT_SKILL_0_0_0">
             <property name="minimumSize">
              <size>
               <width>20</width>
@@ -167,18 +160,18 @@
              <enum>Qt::NoContextMenu</enum>
             </property>
             <property name="statusTip">
-             <string>技能的最小使用面数,0为不使用技能</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
+             <string>技能的最小使用场次,0为不使用技能</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
             </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="TXT_SKILL_0_0_1">
+           <widget class="QSpinBox" name="TXT_SKILL_0_0_1">
             <property name="minimumSize">
              <size>
               <width>20</width>
@@ -195,18 +188,18 @@
              <enum>Qt::NoContextMenu</enum>
             </property>
             <property name="statusTip">
-             <string>技能在最小使用面数的最小使用回合</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
+             <string>技能在最小使用场次的最小使用回合</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
             </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="TXT_SKILL_0_0_2">
+           <widget class="QSpinBox" name="TXT_SKILL_0_0_2">
             <property name="minimumSize">
              <size>
               <width>20</width>
@@ -223,13 +216,50 @@
              <enum>Qt::NoContextMenu</enum>
             </property>
             <property name="statusTip">
-             <string>技能的指向目标,从左到右1-3,0为没有目标</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
+             <string>技能的目标,从左往右1-3,0为没有目标</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+            <property name="maximum">
+             <number>3</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_0_0_3">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>优先级,越小越优先</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+            <property name="maximum">
+             <number>255</number>
+            </property>
+            <property name="displayIntegerBase">
+             <number>16</number>
             </property>
            </widget>
           </item>
@@ -250,7 +280,7 @@
            </spacer>
           </item>
           <item>
-           <widget class="QLineEdit" name="TXT_SKILL_0_1_0">
+           <widget class="QSpinBox" name="TXT_SKILL_0_1_0">
             <property name="minimumSize">
              <size>
               <width>20</width>
@@ -267,18 +297,18 @@
              <enum>Qt::NoContextMenu</enum>
             </property>
             <property name="statusTip">
-             <string>技能的最小使用面数,0为不使用技能</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
+             <string>技能的最小使用场次,0为不使用技能</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="TXT_SKILL_0_1_1">
+           <widget class="QSpinBox" name="TXT_SKILL_0_1_1">
             <property name="minimumSize">
              <size>
               <width>20</width>
@@ -295,18 +325,18 @@
              <enum>Qt::NoContextMenu</enum>
             </property>
             <property name="statusTip">
-             <string>技能在最小使用面数的最小使用回合</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
+             <string>技能在最小使用场次的最小使用回合</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="TXT_SKILL_0_1_2">
+           <widget class="QSpinBox" name="TXT_SKILL_0_1_2">
             <property name="minimumSize">
              <size>
               <width>20</width>
@@ -323,13 +353,50 @@
              <enum>Qt::NoContextMenu</enum>
             </property>
             <property name="statusTip">
-             <string>技能的指向目标,从左到右1-3,0为没有目标</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
+             <string>技能的目标,从左往右1-3,0为没有目标</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+            <property name="maximum">
+             <number>3</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_0_1_3">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>优先级,越小越优先</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+            <property name="maximum">
+             <number>255</number>
+            </property>
+            <property name="displayIntegerBase">
+             <number>16</number>
             </property>
            </widget>
           </item>
@@ -350,7 +417,7 @@
            </spacer>
           </item>
           <item>
-           <widget class="QLineEdit" name="TXT_SKILL_0_2_0">
+           <widget class="QSpinBox" name="TXT_SKILL_0_2_0">
             <property name="minimumSize">
              <size>
               <width>20</width>
@@ -367,18 +434,18 @@
              <enum>Qt::NoContextMenu</enum>
             </property>
             <property name="statusTip">
-             <string>技能的最小使用面数,0为不使用技能</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
+             <string>技能的最小使用场次,0为不使用技能</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="TXT_SKILL_0_2_1">
+           <widget class="QSpinBox" name="TXT_SKILL_0_2_1">
             <property name="minimumSize">
              <size>
               <width>20</width>
@@ -395,18 +462,18 @@
              <enum>Qt::NoContextMenu</enum>
             </property>
             <property name="statusTip">
-             <string>技能在最小使用面数的最小使用回合</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
+             <string>技能在最小使用场次的最小使用回合</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="TXT_SKILL_0_2_2">
+           <widget class="QSpinBox" name="TXT_SKILL_0_2_2">
             <property name="minimumSize">
              <size>
               <width>20</width>
@@ -423,13 +490,50 @@
              <enum>Qt::NoContextMenu</enum>
             </property>
             <property name="statusTip">
-             <string>技能的指向目标,从左到右1-3,0为没有目标</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
+             <string>技能的目标,从左往右1-3,0为没有目标</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+            <property name="maximum">
+             <number>3</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_0_2_3">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>优先级,越小越优先</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+            <property name="maximum">
+             <number>255</number>
+            </property>
+            <property name="displayIntegerBase">
+             <number>16</number>
             </property>
            </widget>
           </item>
@@ -450,7 +554,7 @@
            </spacer>
           </item>
           <item>
-           <widget class="QLineEdit" name="TXT_HOUGU_0_0">
+           <widget class="QSpinBox" name="TXT_HOUGU_0_0">
             <property name="minimumSize">
              <size>
               <width>20</width>
@@ -467,18 +571,18 @@
              <enum>Qt::NoContextMenu</enum>
             </property>
             <property name="statusTip">
-             <string>宝具的最小使用面数,0为不使用宝具</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
+             <string>宝具的最小使用场次,0为不使用宝具</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="TXT_HOUGU_0_1">
+           <widget class="QSpinBox" name="TXT_HOUGU_0_1">
             <property name="minimumSize">
              <size>
               <width>20</width>
@@ -495,13 +599,19 @@
              <enum>Qt::NoContextMenu</enum>
             </property>
             <property name="statusTip">
-             <string>宝具使用的优先级,越大越优先</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
+             <string>优先级,越小越优先</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+            <property name="maximum">
+             <number>255</number>
+            </property>
+            <property name="displayIntegerBase">
+             <number>16</number>
             </property>
            </widget>
           </item>
@@ -529,379 +639,6 @@
           </property>
          </widget>
         </item>
-        <item row="1" column="1">
-         <layout class="QHBoxLayout" name="LAYOUT_INFO_TEAM_1">
-          <item>
-           <widget class="QRadioButton" name="RBT_FRIEND_1">
-            <property name="statusTip">
-             <string>助战的位置,助战的技能设置不会生效</string>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <attribute name="buttonGroup">
-             <string notr="true">BTG_FRIEND</string>
-            </attribute>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="TXT_SKILL_1_0_0">
-            <property name="minimumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="statusTip">
-             <string>技能的最小使用面数,0为不使用技能</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="TXT_SKILL_1_0_1">
-            <property name="minimumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="statusTip">
-             <string>技能在最小使用面数的最小使用回合</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="TXT_SKILL_1_0_2">
-            <property name="minimumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="statusTip">
-             <string>技能的指向目标,从左到右1-3,0为没有目标</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="SPACER_TEAM_1_0">
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>0</width>
-              <height>0</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="TXT_SKILL_1_1_0">
-            <property name="minimumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="statusTip">
-             <string>技能的最小使用面数,0为不使用技能</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="TXT_SKILL_1_1_1">
-            <property name="minimumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="statusTip">
-             <string>技能在最小使用面数的最小使用回合</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="TXT_SKILL_1_1_2">
-            <property name="minimumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="statusTip">
-             <string>技能的指向目标,从左到右1-3,0为没有目标</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="SPACER_TEAM_1_1">
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>0</width>
-              <height>0</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="TXT_SKILL_1_2_0">
-            <property name="minimumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="statusTip">
-             <string>技能的最小使用面数,0为不使用技能</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="TXT_SKILL_1_2_1">
-            <property name="minimumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="statusTip">
-             <string>技能在最小使用面数的最小使用回合</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="TXT_SKILL_1_2_2">
-            <property name="minimumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="statusTip">
-             <string>技能的指向目标,从左到右1-3,0为没有目标</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="SPACER_TEAM_1_2">
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>0</width>
-              <height>0</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="TXT_HOUGU_1_0">
-            <property name="minimumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="statusTip">
-             <string>宝具的最小使用面数,0为不使用宝具</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="TXT_HOUGU_1_1">
-            <property name="minimumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="statusTip">
-             <string>宝具使用的优先级,越大越优先</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
         <item row="2" column="0">
          <widget class="QLabel" name="LBL_TEAM_2">
           <property name="minimumSize">
@@ -923,379 +660,6 @@
            <set>Qt::AlignCenter</set>
           </property>
          </widget>
-        </item>
-        <item row="2" column="1">
-         <layout class="QHBoxLayout" name="LAYOUT_INFO_TEAM_2">
-          <item>
-           <widget class="QRadioButton" name="RBT_FRIEND_2">
-            <property name="statusTip">
-             <string>助战的位置,助战的技能设置不会生效</string>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <attribute name="buttonGroup">
-             <string notr="true">BTG_FRIEND</string>
-            </attribute>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="TXT_SKILL_2_0_0">
-            <property name="minimumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="statusTip">
-             <string>技能的最小使用面数,0为不使用技能</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="TXT_SKILL_2_0_1">
-            <property name="minimumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="statusTip">
-             <string>技能在最小使用面数的最小使用回合</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="TXT_SKILL_2_0_2">
-            <property name="minimumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="statusTip">
-             <string>技能的指向目标,从左到右1-3,0为没有目标</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="SPACER_TEAM_2_0">
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>0</width>
-              <height>0</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="TXT_SKILL_2_1_0">
-            <property name="minimumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="statusTip">
-             <string>技能的最小使用面数,0为不使用技能</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="TXT_SKILL_2_1_1">
-            <property name="minimumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="statusTip">
-             <string>技能在最小使用面数的最小使用回合</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="TXT_SKILL_2_1_2">
-            <property name="minimumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="statusTip">
-             <string>技能的指向目标,从左到右1-3,0为没有目标</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="SPACER_TEAM_2_1">
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>0</width>
-              <height>0</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="TXT_SKILL_2_2_0">
-            <property name="minimumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="statusTip">
-             <string>技能的最小使用面数,0为不使用技能</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="TXT_SKILL_2_2_1">
-            <property name="minimumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="statusTip">
-             <string>技能在最小使用面数的最小使用回合</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="TXT_SKILL_2_2_2">
-            <property name="minimumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="statusTip">
-             <string>技能的指向目标,从左到右1-3,0为没有目标</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="SPACER_TEAM_2_2">
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>0</width>
-              <height>0</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="TXT_HOUGU_2_0">
-            <property name="minimumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="statusTip">
-             <string>宝具的最小使用面数,0为不使用宝具</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="TXT_HOUGU_2_1">
-            <property name="minimumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="statusTip">
-             <string>宝具使用的优先级,越大越优先</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-         </layout>
         </item>
         <item row="3" column="0">
          <widget class="QLabel" name="LBL_TEAM_3">
@@ -1319,379 +683,6 @@
           </property>
          </widget>
         </item>
-        <item row="3" column="1">
-         <layout class="QHBoxLayout" name="LAYOUT_INFO_TEAM_3">
-          <item>
-           <widget class="QRadioButton" name="RBT_FRIEND_3">
-            <property name="statusTip">
-             <string>助战的位置,助战的技能设置不会生效</string>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <attribute name="buttonGroup">
-             <string notr="true">BTG_FRIEND</string>
-            </attribute>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="TXT_SKILL_3_0_0">
-            <property name="minimumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="statusTip">
-             <string>技能的最小使用面数,0为不使用技能</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="TXT_SKILL_3_0_1">
-            <property name="minimumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="statusTip">
-             <string>技能在最小使用面数的最小使用回合</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="TXT_SKILL_3_0_2">
-            <property name="minimumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="statusTip">
-             <string>技能的指向目标,从左到右1-3,0为没有目标</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="SPACER_TEAM_3_0">
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>0</width>
-              <height>0</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="TXT_SKILL_3_1_0">
-            <property name="minimumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="statusTip">
-             <string>技能的最小使用面数,0为不使用技能</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="TXT_SKILL_3_1_1">
-            <property name="minimumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="statusTip">
-             <string>技能在最小使用面数的最小使用回合</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="TXT_SKILL_3_1_2">
-            <property name="minimumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="statusTip">
-             <string>技能的指向目标,从左到右1-3,0为没有目标</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="SPACER_TEAM_3_1">
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>0</width>
-              <height>0</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="TXT_SKILL_3_2_0">
-            <property name="minimumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="statusTip">
-             <string>技能的最小使用面数,0为不使用技能</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="TXT_SKILL_3_2_1">
-            <property name="minimumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="statusTip">
-             <string>技能在最小使用面数的最小使用回合</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="TXT_SKILL_3_2_2">
-            <property name="minimumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="statusTip">
-             <string>技能的指向目标,从左到右1-3,0为没有目标</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="SPACER_TEAM_3_2">
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>0</width>
-              <height>0</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="TXT_HOUGU_3_0">
-            <property name="minimumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="statusTip">
-             <string>宝具的最小使用面数,0为不使用宝具</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="TXT_HOUGU_3_1">
-            <property name="minimumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="statusTip">
-             <string>宝具使用的优先级,越大越优先</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
         <item row="4" column="0">
          <widget class="QLabel" name="LBL_TEAM_4">
           <property name="minimumSize">
@@ -1713,385 +704,6 @@
            <set>Qt::AlignCenter</set>
           </property>
          </widget>
-        </item>
-        <item row="4" column="1">
-         <layout class="QHBoxLayout" name="LAYOUT_INFO_TEAM_4">
-          <item>
-           <widget class="QRadioButton" name="RBT_FRIEND_4">
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
-            <property name="statusTip">
-             <string>助战的位置,助战的技能设置不会生效</string>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-            <attribute name="buttonGroup">
-             <string notr="true">BTG_FRIEND</string>
-            </attribute>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="TXT_SKILL_4_0_0">
-            <property name="minimumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="statusTip">
-             <string>技能的最小使用面数,0为不使用技能</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="TXT_SKILL_4_0_1">
-            <property name="minimumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="statusTip">
-             <string>技能在最小使用面数的最小使用回合</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="TXT_SKILL_4_0_2">
-            <property name="minimumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="statusTip">
-             <string>技能的指向目标,从左到右1-3,0为没有目标</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="SPACER_TEAM_4_0">
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>0</width>
-              <height>0</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="TXT_SKILL_4_1_0">
-            <property name="minimumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="statusTip">
-             <string>技能的最小使用面数,0为不使用技能</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="TXT_SKILL_4_1_1">
-            <property name="minimumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="statusTip">
-             <string>技能在最小使用面数的最小使用回合</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="TXT_SKILL_4_1_2">
-            <property name="minimumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="statusTip">
-             <string>技能的指向目标,从左到右1-3,0为没有目标</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="SPACER_TEAM_4_1">
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>0</width>
-              <height>0</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="TXT_SKILL_4_2_0">
-            <property name="minimumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="statusTip">
-             <string>技能的最小使用面数,0为不使用技能</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="TXT_SKILL_4_2_1">
-            <property name="minimumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="statusTip">
-             <string>技能在最小使用面数的最小使用回合</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="TXT_SKILL_4_2_2">
-            <property name="minimumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="statusTip">
-             <string>技能的指向目标,从左到右1-3,0为没有目标</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="SPACER_TEAM_4_2">
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>0</width>
-              <height>0</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="TXT_HOUGU_4_0">
-            <property name="minimumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="statusTip">
-             <string>宝具的最小使用面数,0为不使用宝具</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="TXT_HOUGU_4_1">
-            <property name="minimumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>20</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="contextMenuPolicy">
-             <enum>Qt::NoContextMenu</enum>
-            </property>
-            <property name="statusTip">
-             <string>宝具使用的优先级,越大越优先</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-         </layout>
         </item>
         <item row="5" column="0">
          <widget class="QLabel" name="LBL_TEAM_5">
@@ -2115,23 +727,1918 @@
           </property>
          </widget>
         </item>
+        <item row="1" column="1">
+         <layout class="QHBoxLayout" name="LAYOUT_INFO_TEAM_1">
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_1_0_0">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>技能的最小使用场次,0为不使用技能</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_1_0_1">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>技能在最小使用场次的最小使用回合</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_1_0_2">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>技能的目标,从左往右1-3,0为没有目标</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+            <property name="maximum">
+             <number>3</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_1_0_3">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>优先级,越小越优先</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+            <property name="maximum">
+             <number>255</number>
+            </property>
+            <property name="displayIntegerBase">
+             <number>16</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="SPACER_TEAM_1_0">
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_1_1_0">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>技能的最小使用场次,0为不使用技能</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_1_1_1">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>技能在最小使用场次的最小使用回合</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_1_1_2">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>技能的目标,从左往右1-3,0为没有目标</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+            <property name="maximum">
+             <number>3</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_1_1_3">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>优先级,越小越优先</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+            <property name="maximum">
+             <number>255</number>
+            </property>
+            <property name="displayIntegerBase">
+             <number>16</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="SPACER_TEAM_1_1">
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_1_2_0">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>技能的最小使用场次,0为不使用技能</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_1_2_1">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>技能在最小使用场次的最小使用回合</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_1_2_2">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>技能的目标,从左往右1-3,0为没有目标</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+            <property name="maximum">
+             <number>3</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_1_2_3">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>优先级,越小越优先</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+            <property name="maximum">
+             <number>255</number>
+            </property>
+            <property name="displayIntegerBase">
+             <number>16</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="SPACER_TEAM_1_2">
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_HOUGU_1_0">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>宝具的最小使用场次,0为不使用宝具</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_HOUGU_1_1">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>优先级,越小越优先</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+            <property name="maximum">
+             <number>255</number>
+            </property>
+            <property name="displayIntegerBase">
+             <number>16</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="2" column="1">
+         <layout class="QHBoxLayout" name="LAYOUT_INFO_TEAM_2">
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_2_0_0">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>技能的最小使用场次,0为不使用技能</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_2_0_1">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>技能在最小使用场次的最小使用回合</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_2_0_2">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>技能的目标,从左往右1-3,0为没有目标</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+            <property name="maximum">
+             <number>3</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_2_0_3">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>优先级,越小越优先</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+            <property name="maximum">
+             <number>255</number>
+            </property>
+            <property name="displayIntegerBase">
+             <number>16</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="SPACER_TEAM_2_0">
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_2_1_0">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>技能的最小使用场次,0为不使用技能</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_2_1_1">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>技能在最小使用场次的最小使用回合</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_2_1_2">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>技能的目标,从左往右1-3,0为没有目标</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+            <property name="maximum">
+             <number>3</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_2_1_3">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>优先级,越小越优先</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+            <property name="maximum">
+             <number>255</number>
+            </property>
+            <property name="displayIntegerBase">
+             <number>16</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="SPACER_TEAM_2_1">
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_2_2_0">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>技能的最小使用场次,0为不使用技能</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_2_2_1">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>技能在最小使用场次的最小使用回合</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_2_2_2">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>技能的目标,从左往右1-3,0为没有目标</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+            <property name="maximum">
+             <number>3</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_2_2_3">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>优先级,越小越优先</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+            <property name="maximum">
+             <number>255</number>
+            </property>
+            <property name="displayIntegerBase">
+             <number>16</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="SPACER_TEAM_2_2">
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_HOUGU_2_0">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>宝具的最小使用场次,0为不使用宝具</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_HOUGU_2_1">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>优先级,越小越优先</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+            <property name="maximum">
+             <number>255</number>
+            </property>
+            <property name="displayIntegerBase">
+             <number>16</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="3" column="1">
+         <layout class="QHBoxLayout" name="LAYOUT_INFO_TEAM_3">
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_3_0_0">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>技能的最小使用场次,0为不使用技能</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_3_0_1">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>技能在最小使用场次的最小使用回合</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_3_0_2">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>技能的目标,从左往右1-3,0为没有目标</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+            <property name="maximum">
+             <number>3</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_3_0_3">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>优先级,越小越优先</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+            <property name="maximum">
+             <number>255</number>
+            </property>
+            <property name="displayIntegerBase">
+             <number>16</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="SPACER_TEAM_3_0">
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_3_1_0">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>技能的最小使用场次,0为不使用技能</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_3_1_1">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>技能在最小使用场次的最小使用回合</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_3_1_2">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>技能的目标,从左往右1-3,0为没有目标</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+            <property name="maximum">
+             <number>3</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_3_1_3">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>优先级,越小越优先</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+            <property name="maximum">
+             <number>255</number>
+            </property>
+            <property name="displayIntegerBase">
+             <number>16</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="SPACER_TEAM_3_1">
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_3_2_0">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>技能的最小使用场次,0为不使用技能</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_3_2_1">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>技能在最小使用场次的最小使用回合</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_3_2_2">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>技能的目标,从左往右1-3,0为没有目标</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+            <property name="maximum">
+             <number>3</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_3_2_3">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>优先级,越小越优先</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+            <property name="maximum">
+             <number>255</number>
+            </property>
+            <property name="displayIntegerBase">
+             <number>16</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="SPACER_TEAM_3_2">
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_HOUGU_3_0">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>宝具的最小使用场次,0为不使用宝具</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_HOUGU_3_1">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>优先级,越小越优先</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+            <property name="maximum">
+             <number>255</number>
+            </property>
+            <property name="displayIntegerBase">
+             <number>16</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="4" column="1">
+         <layout class="QHBoxLayout" name="LAYOUT_INFO_TEAM_4">
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_4_0_0">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>技能的最小使用场次,0为不使用技能</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_4_0_1">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>技能在最小使用场次的最小使用回合</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_4_0_2">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>技能的目标,从左往右1-3,0为没有目标</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+            <property name="maximum">
+             <number>3</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_4_0_3">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>优先级,越小越优先</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+            <property name="maximum">
+             <number>255</number>
+            </property>
+            <property name="displayIntegerBase">
+             <number>16</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="SPACER_TEAM_4_0">
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_4_1_0">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>技能的最小使用场次,0为不使用技能</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_4_1_1">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>技能在最小使用场次的最小使用回合</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_4_1_2">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>技能的目标,从左往右1-3,0为没有目标</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+            <property name="maximum">
+             <number>3</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_4_1_3">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>优先级,越小越优先</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+            <property name="maximum">
+             <number>255</number>
+            </property>
+            <property name="displayIntegerBase">
+             <number>16</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="SPACER_TEAM_4_1">
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_4_2_0">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>技能的最小使用场次,0为不使用技能</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_4_2_1">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>技能在最小使用场次的最小使用回合</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_4_2_2">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>技能的目标,从左往右1-3,0为没有目标</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+            <property name="maximum">
+             <number>3</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_4_2_3">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>优先级,越小越优先</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+            <property name="maximum">
+             <number>255</number>
+            </property>
+            <property name="displayIntegerBase">
+             <number>16</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="SPACER_TEAM_4_2">
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_HOUGU_4_0">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>宝具的最小使用场次,0为不使用宝具</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_HOUGU_4_1">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>优先级,越小越优先</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+            <property name="maximum">
+             <number>255</number>
+            </property>
+            <property name="displayIntegerBase">
+             <number>16</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
         <item row="5" column="1">
          <layout class="QHBoxLayout" name="LAYOUT_INFO_TEAM_5">
           <item>
-           <widget class="QRadioButton" name="RBT_FRIEND_5">
-            <property name="statusTip">
-             <string>助战的位置,助战的技能设置不会生效</string>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <attribute name="buttonGroup">
-             <string notr="true">BTG_FRIEND</string>
-            </attribute>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="TXT_SKILL_5_0_0">
+           <widget class="QSpinBox" name="TXT_SKILL_5_0_0">
             <property name="minimumSize">
              <size>
               <width>20</width>
@@ -2148,18 +2655,18 @@
              <enum>Qt::NoContextMenu</enum>
             </property>
             <property name="statusTip">
-             <string>技能的最小使用面数,0为不使用技能</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
+             <string>技能的最小使用场次,0为不使用技能</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
             </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="TXT_SKILL_5_0_1">
+           <widget class="QSpinBox" name="TXT_SKILL_5_0_1">
             <property name="minimumSize">
              <size>
               <width>20</width>
@@ -2176,18 +2683,18 @@
              <enum>Qt::NoContextMenu</enum>
             </property>
             <property name="statusTip">
-             <string>技能在最小使用面数的最小使用回合</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
+             <string>技能在最小使用场次的最小使用回合</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
             </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="TXT_SKILL_5_0_2">
+           <widget class="QSpinBox" name="TXT_SKILL_5_0_2">
             <property name="minimumSize">
              <size>
               <width>20</width>
@@ -2204,13 +2711,50 @@
              <enum>Qt::NoContextMenu</enum>
             </property>
             <property name="statusTip">
-             <string>技能的指向目标,从左到右1-3,0为没有目标</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
+             <string>技能的目标,从左往右1-3,0为没有目标</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+            <property name="maximum">
+             <number>3</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_5_0_3">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>优先级,越小越优先</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+            <property name="maximum">
+             <number>255</number>
+            </property>
+            <property name="displayIntegerBase">
+             <number>16</number>
             </property>
            </widget>
           </item>
@@ -2231,7 +2775,7 @@
            </spacer>
           </item>
           <item>
-           <widget class="QLineEdit" name="TXT_SKILL_5_1_0">
+           <widget class="QSpinBox" name="TXT_SKILL_5_1_0">
             <property name="minimumSize">
              <size>
               <width>20</width>
@@ -2248,18 +2792,18 @@
              <enum>Qt::NoContextMenu</enum>
             </property>
             <property name="statusTip">
-             <string>技能的最小使用面数,0为不使用技能</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
+             <string>技能的最小使用场次,0为不使用技能</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="TXT_SKILL_5_1_1">
+           <widget class="QSpinBox" name="TXT_SKILL_5_1_1">
             <property name="minimumSize">
              <size>
               <width>20</width>
@@ -2276,18 +2820,18 @@
              <enum>Qt::NoContextMenu</enum>
             </property>
             <property name="statusTip">
-             <string>技能在最小使用面数的最小使用回合</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
+             <string>技能在最小使用场次的最小使用回合</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="TXT_SKILL_5_1_2">
+           <widget class="QSpinBox" name="TXT_SKILL_5_1_2">
             <property name="minimumSize">
              <size>
               <width>20</width>
@@ -2304,13 +2848,50 @@
              <enum>Qt::NoContextMenu</enum>
             </property>
             <property name="statusTip">
-             <string>技能的指向目标,从左到右1-3,0为没有目标</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
+             <string>技能的目标,从左往右1-3,0为没有目标</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+            <property name="maximum">
+             <number>3</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_5_1_3">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>优先级,越小越优先</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+            <property name="maximum">
+             <number>255</number>
+            </property>
+            <property name="displayIntegerBase">
+             <number>16</number>
             </property>
            </widget>
           </item>
@@ -2331,7 +2912,7 @@
            </spacer>
           </item>
           <item>
-           <widget class="QLineEdit" name="TXT_SKILL_5_2_0">
+           <widget class="QSpinBox" name="TXT_SKILL_5_2_0">
             <property name="minimumSize">
              <size>
               <width>20</width>
@@ -2348,18 +2929,18 @@
              <enum>Qt::NoContextMenu</enum>
             </property>
             <property name="statusTip">
-             <string>技能的最小使用面数,0为不使用技能</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
+             <string>技能的最小使用场次,0为不使用技能</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="TXT_SKILL_5_2_1">
+           <widget class="QSpinBox" name="TXT_SKILL_5_2_1">
             <property name="minimumSize">
              <size>
               <width>20</width>
@@ -2376,18 +2957,18 @@
              <enum>Qt::NoContextMenu</enum>
             </property>
             <property name="statusTip">
-             <string>技能在最小使用面数的最小使用回合</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
+             <string>技能在最小使用场次的最小使用回合</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="TXT_SKILL_5_2_2">
+           <widget class="QSpinBox" name="TXT_SKILL_5_2_2">
             <property name="minimumSize">
              <size>
               <width>20</width>
@@ -2404,13 +2985,50 @@
              <enum>Qt::NoContextMenu</enum>
             </property>
             <property name="statusTip">
-             <string>技能的指向目标,从左到右1-3,0为没有目标</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
+             <string>技能的目标,从左往右1-3,0为没有目标</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+            <property name="maximum">
+             <number>3</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="TXT_SKILL_5_2_3">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="statusTip">
+             <string>优先级,越小越优先</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+            <property name="maximum">
+             <number>255</number>
+            </property>
+            <property name="displayIntegerBase">
+             <number>16</number>
             </property>
            </widget>
           </item>
@@ -2431,7 +3049,7 @@
            </spacer>
           </item>
           <item>
-           <widget class="QLineEdit" name="TXT_HOUGU_5_0">
+           <widget class="QSpinBox" name="TXT_HOUGU_5_0">
             <property name="minimumSize">
              <size>
               <width>20</width>
@@ -2448,18 +3066,18 @@
              <enum>Qt::NoContextMenu</enum>
             </property>
             <property name="statusTip">
-             <string>宝具的最小使用面数,0为不使用宝具</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
+             <string>宝具的最小使用场次,0为不使用宝具</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="TXT_HOUGU_5_1">
+           <widget class="QSpinBox" name="TXT_HOUGU_5_1">
             <property name="minimumSize">
              <size>
               <width>20</width>
@@ -2476,13 +3094,19 @@
              <enum>Qt::NoContextMenu</enum>
             </property>
             <property name="statusTip">
-             <string>宝具使用的优先级,越大越优先</string>
-            </property>
-            <property name="inputMask">
-             <string>9</string>
+             <string>优先级,越小越优先</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+            <property name="maximum">
+             <number>255</number>
+            </property>
+            <property name="displayIntegerBase">
+             <number>16</number>
             </property>
            </widget>
           </item>
@@ -2506,7 +3130,7 @@
       <item row="1" column="1">
        <layout class="QHBoxLayout" name="LAYOUT_INFO_MASTER">
         <item>
-         <widget class="QLineEdit" name="TXT_MASTER_0_0">
+         <widget class="QSpinBox" name="TXT_MASTER_0_0">
           <property name="minimumSize">
            <size>
             <width>20</width>
@@ -2523,18 +3147,18 @@
            <enum>Qt::NoContextMenu</enum>
           </property>
           <property name="statusTip">
-           <string>御主技能的使用面数,0为不使用技能</string>
-          </property>
-          <property name="inputMask">
-           <string>9</string>
+           <string>技能的使用场次,0为不使用技能</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+          <property name="buttonSymbols">
+           <enum>QAbstractSpinBox::NoButtons</enum>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="TXT_MASTER_0_1">
+         <widget class="QSpinBox" name="TXT_MASTER_0_1">
           <property name="minimumSize">
            <size>
             <width>20</width>
@@ -2551,18 +3175,18 @@
            <enum>Qt::NoContextMenu</enum>
           </property>
           <property name="statusTip">
-           <string>御主技能在使用面数的使用回合</string>
-          </property>
-          <property name="inputMask">
-           <string>9</string>
+           <string>技能在使用场次的使用回合</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+          <property name="buttonSymbols">
+           <enum>QAbstractSpinBox::NoButtons</enum>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="TXT_MASTER_0_2">
+         <widget class="QSpinBox" name="TXT_MASTER_0_2">
           <property name="minimumSize">
            <size>
             <width>20</width>
@@ -2579,13 +3203,50 @@
            <enum>Qt::NoContextMenu</enum>
           </property>
           <property name="statusTip">
-           <string>御主技能的指向目标,从左到右1-3,0为没有目标</string>
-          </property>
-          <property name="inputMask">
-           <string>9</string>
+           <string>技能的目标,从左往右1-3,0为没有目标</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+          <property name="buttonSymbols">
+           <enum>QAbstractSpinBox::NoButtons</enum>
+          </property>
+          <property name="maximum">
+           <number>3</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSpinBox" name="TXT_MASTER_0_3">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="contextMenuPolicy">
+           <enum>Qt::NoContextMenu</enum>
+          </property>
+          <property name="statusTip">
+           <string>优先级,越小越优先</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+          <property name="buttonSymbols">
+           <enum>QAbstractSpinBox::NoButtons</enum>
+          </property>
+          <property name="maximum">
+           <number>255</number>
+          </property>
+          <property name="displayIntegerBase">
+           <number>16</number>
           </property>
          </widget>
         </item>
@@ -2606,7 +3267,7 @@
          </spacer>
         </item>
         <item>
-         <widget class="QLineEdit" name="TXT_MASTER_1_0">
+         <widget class="QSpinBox" name="TXT_MASTER_1_0">
           <property name="minimumSize">
            <size>
             <width>20</width>
@@ -2623,18 +3284,18 @@
            <enum>Qt::NoContextMenu</enum>
           </property>
           <property name="statusTip">
-           <string>御主技能的最小使用面数,0为不使用技能</string>
-          </property>
-          <property name="inputMask">
-           <string>9</string>
+           <string>技能的使用场次,0为不使用技能</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+          <property name="buttonSymbols">
+           <enum>QAbstractSpinBox::NoButtons</enum>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="TXT_MASTER_1_1">
+         <widget class="QSpinBox" name="TXT_MASTER_1_1">
           <property name="minimumSize">
            <size>
             <width>20</width>
@@ -2651,18 +3312,18 @@
            <enum>Qt::NoContextMenu</enum>
           </property>
           <property name="statusTip">
-           <string>御主技能在使用面数的使用回合</string>
-          </property>
-          <property name="inputMask">
-           <string>9</string>
+           <string>技能在使用场次的使用回合</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+          <property name="buttonSymbols">
+           <enum>QAbstractSpinBox::NoButtons</enum>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="TXT_MASTER_1_2">
+         <widget class="QSpinBox" name="TXT_MASTER_1_2">
           <property name="minimumSize">
            <size>
             <width>20</width>
@@ -2679,13 +3340,50 @@
            <enum>Qt::NoContextMenu</enum>
           </property>
           <property name="statusTip">
-           <string>御主技能的指向目标,从左到右1-3,0为没有目标</string>
-          </property>
-          <property name="inputMask">
-           <string>9</string>
+           <string>技能的目标,从左往右1-3,0为没有目标</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+          <property name="buttonSymbols">
+           <enum>QAbstractSpinBox::NoButtons</enum>
+          </property>
+          <property name="maximum">
+           <number>3</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSpinBox" name="TXT_MASTER_1_3">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="contextMenuPolicy">
+           <enum>Qt::NoContextMenu</enum>
+          </property>
+          <property name="statusTip">
+           <string>优先级,越小越优先</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+          <property name="buttonSymbols">
+           <enum>QAbstractSpinBox::NoButtons</enum>
+          </property>
+          <property name="maximum">
+           <number>255</number>
+          </property>
+          <property name="displayIntegerBase">
+           <number>16</number>
           </property>
          </widget>
         </item>
@@ -2706,7 +3404,7 @@
          </spacer>
         </item>
         <item>
-         <widget class="QLineEdit" name="TXT_MASTER_2_0">
+         <widget class="QSpinBox" name="TXT_MASTER_2_0">
           <property name="minimumSize">
            <size>
             <width>20</width>
@@ -2723,18 +3421,18 @@
            <enum>Qt::NoContextMenu</enum>
           </property>
           <property name="statusTip">
-           <string>御主技能的使用面数,0为不使用技能</string>
-          </property>
-          <property name="inputMask">
-           <string>9</string>
+           <string>技能的使用场次,0为不使用技能</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
           </property>
+          <property name="buttonSymbols">
+           <enum>QAbstractSpinBox::NoButtons</enum>
+          </property>
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="TXT_MASTER_2_1">
+         <widget class="QSpinBox" name="TXT_MASTER_2_1">
           <property name="minimumSize">
            <size>
             <width>20</width>
@@ -2751,18 +3449,18 @@
            <enum>Qt::NoContextMenu</enum>
           </property>
           <property name="statusTip">
-           <string>御主技能在使用面数的使用回合</string>
-          </property>
-          <property name="inputMask">
-           <string>9</string>
+           <string>技能在使用场次的使用回合</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
           </property>
+          <property name="buttonSymbols">
+           <enum>QAbstractSpinBox::NoButtons</enum>
+          </property>
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="TXT_MASTER_2_2">
+         <widget class="QSpinBox" name="TXT_MASTER_2_2">
           <property name="minimumSize">
            <size>
             <width>20</width>
@@ -2779,18 +3477,21 @@
            <enum>Qt::NoContextMenu</enum>
           </property>
           <property name="statusTip">
-           <string>御主技能的指向目标,从左到右1-3,0为没有目标</string>
-          </property>
-          <property name="inputMask">
-           <string>9</string>
+           <string>技能的目标,从左往右1-3,0为没有目标</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
           </property>
+          <property name="buttonSymbols">
+           <enum>QAbstractSpinBox::NoButtons</enum>
+          </property>
+          <property name="maximum">
+           <number>6</number>
+          </property>
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="TXT_MASTER_2_3">
+         <widget class="QSpinBox" name="TXT_MASTER_2_3">
           <property name="minimumSize">
            <size>
             <width>20</width>
@@ -2805,18 +3506,52 @@
           </property>
           <property name="contextMenuPolicy">
            <enum>Qt::NoContextMenu</enum>
-          </property>
-          <property name="toolTip">
-           <string>如果对应位置没有从者脚本会卡死,请谨慎使用</string>
           </property>
           <property name="statusTip">
            <string>仅用于换人礼装,编队界面从左到右1-6,非换人礼装填0</string>
           </property>
-          <property name="inputMask">
-           <string>9</string>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+          <property name="buttonSymbols">
+           <enum>QAbstractSpinBox::NoButtons</enum>
+          </property>
+          <property name="maximum">
+           <number>6</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSpinBox" name="TXT_MASTER_2_4">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="contextMenuPolicy">
+           <enum>Qt::NoContextMenu</enum>
+          </property>
+          <property name="statusTip">
+           <string>优先级,越小越优先</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+          <property name="buttonSymbols">
+           <enum>QAbstractSpinBox::NoButtons</enum>
+          </property>
+          <property name="maximum">
+           <number>255</number>
+          </property>
+          <property name="displayIntegerBase">
+           <number>16</number>
           </property>
          </widget>
         </item>
@@ -3106,9 +3841,11 @@
     </widget>
     <addaction name="MENU_CONTROL_STAYONTOP"/>
     <addaction name="MENU_CONTROL_TRAY"/>
+    <addaction name="MENU_CONTROL_RELOADTEAMUP"/>
     <addaction name="separator"/>
     <addaction name="MENU_CONTROL_MAPKEY"/>
     <addaction name="MENU_CONTROL_169"/>
+    <addaction name="MENU_CONTROL_NOTIFY"/>
     <addaction name="separator"/>
     <addaction name="MENU_CONTROL_EXEC"/>
    </widget>
@@ -3216,72 +3953,97 @@
     <string>恢复原分辨率</string>
    </property>
   </action>
+  <action name="MENU_CONTROL_RELOADTEAMUP">
+   <property name="text">
+    <string>重新载入编队</string>
+   </property>
+  </action>
+  <action name="MENU_CONTROL_NOTIFY">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>消息推送</string>
+   </property>
+  </action>
  </widget>
  <tabstops>
   <tabstop>CBX_TEAM</tabstop>
   <tabstop>TXT_TEAM</tabstop>
   <tabstop>BTN_TEAMSAVE</tabstop>
   <tabstop>BTN_TEAMRESET</tabstop>
-  <tabstop>RBT_FRIEND_0</tabstop>
-  <tabstop>RBT_FRIEND_1</tabstop>
-  <tabstop>RBT_FRIEND_2</tabstop>
-  <tabstop>RBT_FRIEND_3</tabstop>
-  <tabstop>RBT_FRIEND_4</tabstop>
-  <tabstop>RBT_FRIEND_5</tabstop>
   <tabstop>TXT_SKILL_0_0_0</tabstop>
   <tabstop>TXT_SKILL_0_0_1</tabstop>
   <tabstop>TXT_SKILL_0_0_2</tabstop>
+  <tabstop>TXT_SKILL_0_0_3</tabstop>
   <tabstop>TXT_SKILL_0_1_0</tabstop>
   <tabstop>TXT_SKILL_0_1_1</tabstop>
   <tabstop>TXT_SKILL_0_1_2</tabstop>
+  <tabstop>TXT_SKILL_0_1_3</tabstop>
   <tabstop>TXT_SKILL_0_2_0</tabstop>
   <tabstop>TXT_SKILL_0_2_1</tabstop>
   <tabstop>TXT_SKILL_0_2_2</tabstop>
+  <tabstop>TXT_SKILL_0_2_3</tabstop>
   <tabstop>TXT_SKILL_1_0_0</tabstop>
   <tabstop>TXT_SKILL_1_0_1</tabstop>
   <tabstop>TXT_SKILL_1_0_2</tabstop>
+  <tabstop>TXT_SKILL_1_0_3</tabstop>
   <tabstop>TXT_SKILL_1_1_0</tabstop>
   <tabstop>TXT_SKILL_1_1_1</tabstop>
   <tabstop>TXT_SKILL_1_1_2</tabstop>
+  <tabstop>TXT_SKILL_1_1_3</tabstop>
   <tabstop>TXT_SKILL_1_2_0</tabstop>
   <tabstop>TXT_SKILL_1_2_1</tabstop>
   <tabstop>TXT_SKILL_1_2_2</tabstop>
+  <tabstop>TXT_SKILL_1_2_3</tabstop>
   <tabstop>TXT_SKILL_2_0_0</tabstop>
   <tabstop>TXT_SKILL_2_0_1</tabstop>
   <tabstop>TXT_SKILL_2_0_2</tabstop>
+  <tabstop>TXT_SKILL_2_0_3</tabstop>
   <tabstop>TXT_SKILL_2_1_0</tabstop>
   <tabstop>TXT_SKILL_2_1_1</tabstop>
   <tabstop>TXT_SKILL_2_1_2</tabstop>
+  <tabstop>TXT_SKILL_2_1_3</tabstop>
   <tabstop>TXT_SKILL_2_2_0</tabstop>
   <tabstop>TXT_SKILL_2_2_1</tabstop>
   <tabstop>TXT_SKILL_2_2_2</tabstop>
+  <tabstop>TXT_SKILL_2_2_3</tabstop>
   <tabstop>TXT_SKILL_3_0_0</tabstop>
   <tabstop>TXT_SKILL_3_0_1</tabstop>
   <tabstop>TXT_SKILL_3_0_2</tabstop>
+  <tabstop>TXT_SKILL_3_0_3</tabstop>
   <tabstop>TXT_SKILL_3_1_0</tabstop>
   <tabstop>TXT_SKILL_3_1_1</tabstop>
   <tabstop>TXT_SKILL_3_1_2</tabstop>
+  <tabstop>TXT_SKILL_3_1_3</tabstop>
   <tabstop>TXT_SKILL_3_2_0</tabstop>
   <tabstop>TXT_SKILL_3_2_1</tabstop>
   <tabstop>TXT_SKILL_3_2_2</tabstop>
+  <tabstop>TXT_SKILL_3_2_3</tabstop>
   <tabstop>TXT_SKILL_4_0_0</tabstop>
   <tabstop>TXT_SKILL_4_0_1</tabstop>
   <tabstop>TXT_SKILL_4_0_2</tabstop>
+  <tabstop>TXT_SKILL_4_0_3</tabstop>
   <tabstop>TXT_SKILL_4_1_0</tabstop>
   <tabstop>TXT_SKILL_4_1_1</tabstop>
   <tabstop>TXT_SKILL_4_1_2</tabstop>
+  <tabstop>TXT_SKILL_4_1_3</tabstop>
   <tabstop>TXT_SKILL_4_2_0</tabstop>
   <tabstop>TXT_SKILL_4_2_1</tabstop>
   <tabstop>TXT_SKILL_4_2_2</tabstop>
+  <tabstop>TXT_SKILL_4_2_3</tabstop>
   <tabstop>TXT_SKILL_5_0_0</tabstop>
   <tabstop>TXT_SKILL_5_0_1</tabstop>
   <tabstop>TXT_SKILL_5_0_2</tabstop>
+  <tabstop>TXT_SKILL_5_0_3</tabstop>
   <tabstop>TXT_SKILL_5_1_0</tabstop>
   <tabstop>TXT_SKILL_5_1_1</tabstop>
   <tabstop>TXT_SKILL_5_1_2</tabstop>
+  <tabstop>TXT_SKILL_5_1_3</tabstop>
   <tabstop>TXT_SKILL_5_2_0</tabstop>
   <tabstop>TXT_SKILL_5_2_1</tabstop>
   <tabstop>TXT_SKILL_5_2_2</tabstop>
+  <tabstop>TXT_SKILL_5_2_3</tabstop>
   <tabstop>TXT_HOUGU_0_0</tabstop>
   <tabstop>TXT_HOUGU_0_1</tabstop>
   <tabstop>TXT_HOUGU_1_0</tabstop>
@@ -3297,18 +4059,21 @@
   <tabstop>TXT_MASTER_0_0</tabstop>
   <tabstop>TXT_MASTER_0_1</tabstop>
   <tabstop>TXT_MASTER_0_2</tabstop>
+  <tabstop>TXT_MASTER_0_3</tabstop>
   <tabstop>TXT_MASTER_1_0</tabstop>
   <tabstop>TXT_MASTER_1_1</tabstop>
   <tabstop>TXT_MASTER_1_2</tabstop>
+  <tabstop>TXT_MASTER_1_3</tabstop>
   <tabstop>TXT_MASTER_2_0</tabstop>
   <tabstop>TXT_MASTER_2_1</tabstop>
   <tabstop>TXT_MASTER_2_2</tabstop>
   <tabstop>TXT_MASTER_2_3</tabstop>
+  <tabstop>TXT_MASTER_2_4</tabstop>
   <tabstop>CBX_APPLE</tabstop>
   <tabstop>TXT_APPLE</tabstop>
+  <tabstop>BTN_GETDEVICE</tabstop>
   <tabstop>BTN_ONEBATTLE</tabstop>
   <tabstop>BTN_USER</tabstop>
-  <tabstop>BTN_GETDEVICE</tabstop>
   <tabstop>BTN_MAIN</tabstop>
   <tabstop>BTN_STOP</tabstop>
   <tabstop>BTN_PAUSE</tabstop>
@@ -3474,6 +4239,18 @@
    <receiver>fgoMainWindow</receiver>
    <slot>revoke169()</slot>
   </connection>
+  <connection>
+   <sender>MENU_CONTROL_RELOADTEAMUP</sender>
+   <signal>triggered()</signal>
+   <receiver>fgoMainWindow</receiver>
+   <slot>reloadTeamup()</slot>
+  </connection>
+  <connection>
+   <sender>MENU_CONTROL_NOTIFY</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>fgoMainWindow</receiver>
+   <slot>notify()</slot>
+  </connection>
  </connections>
  <slots>
   <slot>runBattle()</slot>
@@ -3502,8 +4279,7 @@
   <slot>closeToTray(bool)</slot>
   <slot>invoke169()</slot>
   <slot>revoke169()</slot>
+  <slot>reloadTeamup()</slot>
+  <slot>notify()</slot>
  </slots>
- <buttongroups>
-  <buttongroup name="BTG_FRIEND"/>
- </buttongroups>
 </ui>
