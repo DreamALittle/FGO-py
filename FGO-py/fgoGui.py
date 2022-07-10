@@ -9,10 +9,6 @@ from fgoMainWindow import Ui_fgoMainWindow
 from fgoServerChann import ServerChann
 logger=fgoKernel.getLogger('Gui')
 
-logger=fgoFunc.getLogger('Gui')
-
-NewConfigParser=type('NewConfigParser',(ConfigParser,),{'__init__':lambda self,file:(ConfigParser.__init__(self),self.read(file))[0],'optionxform':lambda self,optionstr:optionstr})
-
 class Config:
     def __init__(self,link=None):
         with open('fgoConfig.json')as f:self.config=json.load(f)
