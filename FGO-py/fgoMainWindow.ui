@@ -168,6 +168,9 @@
             <property name="buttonSymbols">
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
+            <property name="maximum">
+             <number>9</number>
+            </property>
            </widget>
           </item>
           <item>
@@ -196,6 +199,9 @@
             <property name="buttonSymbols">
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
+            <property name="maximum">
+             <number>9</number>
+            </property>
            </widget>
           </item>
           <item>
@@ -216,7 +222,7 @@
              <enum>Qt::NoContextMenu</enum>
             </property>
             <property name="statusTip">
-             <string>技能的目标,从左往右1-3,0为没有目标</string>
+             <string>技能的目标,从左往右1-3,0为不关心目标</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -256,7 +262,7 @@
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
             <property name="maximum">
-             <number>255</number>
+             <number>15</number>
             </property>
             <property name="displayIntegerBase">
              <number>16</number>
@@ -305,6 +311,9 @@
             <property name="buttonSymbols">
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
+            <property name="maximum">
+             <number>9</number>
+            </property>
            </widget>
           </item>
           <item>
@@ -333,6 +342,9 @@
             <property name="buttonSymbols">
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
+            <property name="maximum">
+             <number>9</number>
+            </property>
            </widget>
           </item>
           <item>
@@ -353,7 +365,7 @@
              <enum>Qt::NoContextMenu</enum>
             </property>
             <property name="statusTip">
-             <string>技能的目标,从左往右1-3,0为没有目标</string>
+             <string>技能的目标,从左往右1-3,0为不关心目标</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -393,7 +405,7 @@
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
             <property name="maximum">
-             <number>255</number>
+             <number>15</number>
             </property>
             <property name="displayIntegerBase">
              <number>16</number>
@@ -442,6 +454,9 @@
             <property name="buttonSymbols">
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
+            <property name="maximum">
+             <number>9</number>
+            </property>
            </widget>
           </item>
           <item>
@@ -470,6 +485,9 @@
             <property name="buttonSymbols">
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
+            <property name="maximum">
+             <number>9</number>
+            </property>
            </widget>
           </item>
           <item>
@@ -490,7 +508,7 @@
              <enum>Qt::NoContextMenu</enum>
             </property>
             <property name="statusTip">
-             <string>技能的目标,从左往右1-3,0为没有目标</string>
+             <string>技能的目标,从左往右1-3,0为不关心目标</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -530,7 +548,7 @@
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
             <property name="maximum">
-             <number>255</number>
+             <number>15</number>
             </property>
             <property name="displayIntegerBase">
              <number>16</number>
@@ -608,7 +626,7 @@
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
             <property name="maximum">
-             <number>255</number>
+             <number>15</number>
             </property>
             <property name="displayIntegerBase">
              <number>16</number>
@@ -755,6 +773,9 @@
             <property name="buttonSymbols">
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
+            <property name="maximum">
+             <number>9</number>
+            </property>
            </widget>
           </item>
           <item>
@@ -783,6 +804,9 @@
             <property name="buttonSymbols">
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
+            <property name="maximum">
+             <number>9</number>
+            </property>
            </widget>
           </item>
           <item>
@@ -803,7 +827,7 @@
              <enum>Qt::NoContextMenu</enum>
             </property>
             <property name="statusTip">
-             <string>技能的目标,从左往右1-3,0为没有目标</string>
+             <string>技能的目标,从左往右1-3,0为不关心目标</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -843,7 +867,7 @@
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
             <property name="maximum">
-             <number>255</number>
+             <number>15</number>
             </property>
             <property name="displayIntegerBase">
              <number>16</number>
@@ -892,6 +916,9 @@
             <property name="buttonSymbols">
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
+            <property name="maximum">
+             <number>9</number>
+            </property>
            </widget>
           </item>
           <item>
@@ -920,6 +947,9 @@
             <property name="buttonSymbols">
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
+            <property name="maximum">
+             <number>9</number>
+            </property>
            </widget>
           </item>
           <item>
@@ -940,7 +970,7 @@
              <enum>Qt::NoContextMenu</enum>
             </property>
             <property name="statusTip">
-             <string>技能的目标,从左往右1-3,0为没有目标</string>
+             <string>技能的目标,从左往右1-3,0为不关心目标</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -980,7 +1010,7 @@
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
             <property name="maximum">
-             <number>255</number>
+             <number>15</number>
             </property>
             <property name="displayIntegerBase">
              <number>16</number>
@@ -1029,6 +1059,9 @@
             <property name="buttonSymbols">
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
+            <property name="maximum">
+             <number>9</number>
+            </property>
            </widget>
           </item>
           <item>
@@ -1057,6 +1090,9 @@
             <property name="buttonSymbols">
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
+            <property name="maximum">
+             <number>9</number>
+            </property>
            </widget>
           </item>
           <item>
@@ -1077,7 +1113,7 @@
              <enum>Qt::NoContextMenu</enum>
             </property>
             <property name="statusTip">
-             <string>技能的目标,从左往右1-3,0为没有目标</string>
+             <string>技能的目标,从左往右1-3,0为不关心目标</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -1117,7 +1153,7 @@
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
             <property name="maximum">
-             <number>255</number>
+             <number>15</number>
             </property>
             <property name="displayIntegerBase">
              <number>16</number>
@@ -1195,7 +1231,7 @@
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
             <property name="maximum">
-             <number>255</number>
+             <number>15</number>
             </property>
             <property name="displayIntegerBase">
              <number>16</number>
@@ -1232,6 +1268,9 @@
             <property name="buttonSymbols">
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
+            <property name="maximum">
+             <number>9</number>
+            </property>
            </widget>
           </item>
           <item>
@@ -1260,6 +1299,9 @@
             <property name="buttonSymbols">
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
+            <property name="maximum">
+             <number>9</number>
+            </property>
            </widget>
           </item>
           <item>
@@ -1280,7 +1322,7 @@
              <enum>Qt::NoContextMenu</enum>
             </property>
             <property name="statusTip">
-             <string>技能的目标,从左往右1-3,0为没有目标</string>
+             <string>技能的目标,从左往右1-3,0为不关心目标</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -1320,7 +1362,7 @@
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
             <property name="maximum">
-             <number>255</number>
+             <number>15</number>
             </property>
             <property name="displayIntegerBase">
              <number>16</number>
@@ -1369,6 +1411,9 @@
             <property name="buttonSymbols">
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
+            <property name="maximum">
+             <number>9</number>
+            </property>
            </widget>
           </item>
           <item>
@@ -1397,6 +1442,9 @@
             <property name="buttonSymbols">
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
+            <property name="maximum">
+             <number>9</number>
+            </property>
            </widget>
           </item>
           <item>
@@ -1417,7 +1465,7 @@
              <enum>Qt::NoContextMenu</enum>
             </property>
             <property name="statusTip">
-             <string>技能的目标,从左往右1-3,0为没有目标</string>
+             <string>技能的目标,从左往右1-3,0为不关心目标</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -1457,7 +1505,7 @@
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
             <property name="maximum">
-             <number>255</number>
+             <number>15</number>
             </property>
             <property name="displayIntegerBase">
              <number>16</number>
@@ -1506,6 +1554,9 @@
             <property name="buttonSymbols">
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
+            <property name="maximum">
+             <number>9</number>
+            </property>
            </widget>
           </item>
           <item>
@@ -1534,6 +1585,9 @@
             <property name="buttonSymbols">
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
+            <property name="maximum">
+             <number>9</number>
+            </property>
            </widget>
           </item>
           <item>
@@ -1554,7 +1608,7 @@
              <enum>Qt::NoContextMenu</enum>
             </property>
             <property name="statusTip">
-             <string>技能的目标,从左往右1-3,0为没有目标</string>
+             <string>技能的目标,从左往右1-3,0为不关心目标</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -1594,7 +1648,7 @@
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
             <property name="maximum">
-             <number>255</number>
+             <number>15</number>
             </property>
             <property name="displayIntegerBase">
              <number>16</number>
@@ -1672,7 +1726,7 @@
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
             <property name="maximum">
-             <number>255</number>
+             <number>15</number>
             </property>
             <property name="displayIntegerBase">
              <number>16</number>
@@ -1709,6 +1763,9 @@
             <property name="buttonSymbols">
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
+            <property name="maximum">
+             <number>9</number>
+            </property>
            </widget>
           </item>
           <item>
@@ -1737,6 +1794,9 @@
             <property name="buttonSymbols">
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
+            <property name="maximum">
+             <number>9</number>
+            </property>
            </widget>
           </item>
           <item>
@@ -1757,7 +1817,7 @@
              <enum>Qt::NoContextMenu</enum>
             </property>
             <property name="statusTip">
-             <string>技能的目标,从左往右1-3,0为没有目标</string>
+             <string>技能的目标,从左往右1-3,0为不关心目标</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -1797,7 +1857,7 @@
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
             <property name="maximum">
-             <number>255</number>
+             <number>15</number>
             </property>
             <property name="displayIntegerBase">
              <number>16</number>
@@ -1846,6 +1906,9 @@
             <property name="buttonSymbols">
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
+            <property name="maximum">
+             <number>9</number>
+            </property>
            </widget>
           </item>
           <item>
@@ -1874,6 +1937,9 @@
             <property name="buttonSymbols">
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
+            <property name="maximum">
+             <number>9</number>
+            </property>
            </widget>
           </item>
           <item>
@@ -1894,7 +1960,7 @@
              <enum>Qt::NoContextMenu</enum>
             </property>
             <property name="statusTip">
-             <string>技能的目标,从左往右1-3,0为没有目标</string>
+             <string>技能的目标,从左往右1-3,0为不关心目标</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -1934,7 +2000,7 @@
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
             <property name="maximum">
-             <number>255</number>
+             <number>15</number>
             </property>
             <property name="displayIntegerBase">
              <number>16</number>
@@ -1983,6 +2049,9 @@
             <property name="buttonSymbols">
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
+            <property name="maximum">
+             <number>9</number>
+            </property>
            </widget>
           </item>
           <item>
@@ -2011,6 +2080,9 @@
             <property name="buttonSymbols">
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
+            <property name="maximum">
+             <number>9</number>
+            </property>
            </widget>
           </item>
           <item>
@@ -2031,7 +2103,7 @@
              <enum>Qt::NoContextMenu</enum>
             </property>
             <property name="statusTip">
-             <string>技能的目标,从左往右1-3,0为没有目标</string>
+             <string>技能的目标,从左往右1-3,0为不关心目标</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -2071,7 +2143,7 @@
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
             <property name="maximum">
-             <number>255</number>
+             <number>15</number>
             </property>
             <property name="displayIntegerBase">
              <number>16</number>
@@ -2149,7 +2221,7 @@
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
             <property name="maximum">
-             <number>255</number>
+             <number>15</number>
             </property>
             <property name="displayIntegerBase">
              <number>16</number>
@@ -2186,6 +2258,9 @@
             <property name="buttonSymbols">
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
+            <property name="maximum">
+             <number>9</number>
+            </property>
            </widget>
           </item>
           <item>
@@ -2214,6 +2289,9 @@
             <property name="buttonSymbols">
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
+            <property name="maximum">
+             <number>9</number>
+            </property>
            </widget>
           </item>
           <item>
@@ -2234,7 +2312,7 @@
              <enum>Qt::NoContextMenu</enum>
             </property>
             <property name="statusTip">
-             <string>技能的目标,从左往右1-3,0为没有目标</string>
+             <string>技能的目标,从左往右1-3,0为不关心目标</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -2274,7 +2352,7 @@
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
             <property name="maximum">
-             <number>255</number>
+             <number>15</number>
             </property>
             <property name="displayIntegerBase">
              <number>16</number>
@@ -2323,6 +2401,9 @@
             <property name="buttonSymbols">
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
+            <property name="maximum">
+             <number>9</number>
+            </property>
            </widget>
           </item>
           <item>
@@ -2351,6 +2432,9 @@
             <property name="buttonSymbols">
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
+            <property name="maximum">
+             <number>9</number>
+            </property>
            </widget>
           </item>
           <item>
@@ -2371,7 +2455,7 @@
              <enum>Qt::NoContextMenu</enum>
             </property>
             <property name="statusTip">
-             <string>技能的目标,从左往右1-3,0为没有目标</string>
+             <string>技能的目标,从左往右1-3,0为不关心目标</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -2411,7 +2495,7 @@
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
             <property name="maximum">
-             <number>255</number>
+             <number>15</number>
             </property>
             <property name="displayIntegerBase">
              <number>16</number>
@@ -2460,6 +2544,9 @@
             <property name="buttonSymbols">
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
+            <property name="maximum">
+             <number>9</number>
+            </property>
            </widget>
           </item>
           <item>
@@ -2488,6 +2575,9 @@
             <property name="buttonSymbols">
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
+            <property name="maximum">
+             <number>9</number>
+            </property>
            </widget>
           </item>
           <item>
@@ -2508,7 +2598,7 @@
              <enum>Qt::NoContextMenu</enum>
             </property>
             <property name="statusTip">
-             <string>技能的目标,从左往右1-3,0为没有目标</string>
+             <string>技能的目标,从左往右1-3,0为不关心目标</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -2548,7 +2638,7 @@
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
             <property name="maximum">
-             <number>255</number>
+             <number>15</number>
             </property>
             <property name="displayIntegerBase">
              <number>16</number>
@@ -2626,7 +2716,7 @@
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
             <property name="maximum">
-             <number>255</number>
+             <number>15</number>
             </property>
             <property name="displayIntegerBase">
              <number>16</number>
@@ -2663,6 +2753,9 @@
             <property name="buttonSymbols">
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
+            <property name="maximum">
+             <number>9</number>
+            </property>
            </widget>
           </item>
           <item>
@@ -2691,6 +2784,9 @@
             <property name="buttonSymbols">
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
+            <property name="maximum">
+             <number>9</number>
+            </property>
            </widget>
           </item>
           <item>
@@ -2711,7 +2807,7 @@
              <enum>Qt::NoContextMenu</enum>
             </property>
             <property name="statusTip">
-             <string>技能的目标,从左往右1-3,0为没有目标</string>
+             <string>技能的目标,从左往右1-3,0为不关心目标</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -2751,7 +2847,7 @@
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
             <property name="maximum">
-             <number>255</number>
+             <number>15</number>
             </property>
             <property name="displayIntegerBase">
              <number>16</number>
@@ -2800,6 +2896,9 @@
             <property name="buttonSymbols">
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
+            <property name="maximum">
+             <number>9</number>
+            </property>
            </widget>
           </item>
           <item>
@@ -2828,6 +2927,9 @@
             <property name="buttonSymbols">
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
+            <property name="maximum">
+             <number>9</number>
+            </property>
            </widget>
           </item>
           <item>
@@ -2848,7 +2950,7 @@
              <enum>Qt::NoContextMenu</enum>
             </property>
             <property name="statusTip">
-             <string>技能的目标,从左往右1-3,0为没有目标</string>
+             <string>技能的目标,从左往右1-3,0为不关心目标</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -2888,7 +2990,7 @@
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
             <property name="maximum">
-             <number>255</number>
+             <number>15</number>
             </property>
             <property name="displayIntegerBase">
              <number>16</number>
@@ -2937,6 +3039,9 @@
             <property name="buttonSymbols">
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
+            <property name="maximum">
+             <number>9</number>
+            </property>
            </widget>
           </item>
           <item>
@@ -2965,6 +3070,9 @@
             <property name="buttonSymbols">
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
+            <property name="maximum">
+             <number>9</number>
+            </property>
            </widget>
           </item>
           <item>
@@ -2985,7 +3093,7 @@
              <enum>Qt::NoContextMenu</enum>
             </property>
             <property name="statusTip">
-             <string>技能的目标,从左往右1-3,0为没有目标</string>
+             <string>技能的目标,从左往右1-3,0为不关心目标</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -3025,7 +3133,7 @@
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
             <property name="maximum">
-             <number>255</number>
+             <number>15</number>
             </property>
             <property name="displayIntegerBase">
              <number>16</number>
@@ -3103,7 +3211,7 @@
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
             <property name="maximum">
-             <number>255</number>
+             <number>15</number>
             </property>
             <property name="displayIntegerBase">
              <number>16</number>
@@ -3155,6 +3263,9 @@
           <property name="buttonSymbols">
            <enum>QAbstractSpinBox::NoButtons</enum>
           </property>
+          <property name="maximum">
+           <number>9</number>
+          </property>
          </widget>
         </item>
         <item>
@@ -3183,6 +3294,9 @@
           <property name="buttonSymbols">
            <enum>QAbstractSpinBox::NoButtons</enum>
           </property>
+          <property name="maximum">
+           <number>9</number>
+          </property>
          </widget>
         </item>
         <item>
@@ -3203,7 +3317,7 @@
            <enum>Qt::NoContextMenu</enum>
           </property>
           <property name="statusTip">
-           <string>技能的目标,从左往右1-3,0为没有目标</string>
+           <string>技能的目标,从左往右1-3,0为不关心目标</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -3243,7 +3357,7 @@
            <enum>QAbstractSpinBox::NoButtons</enum>
           </property>
           <property name="maximum">
-           <number>255</number>
+           <number>15</number>
           </property>
           <property name="displayIntegerBase">
            <number>16</number>
@@ -3292,6 +3406,9 @@
           <property name="buttonSymbols">
            <enum>QAbstractSpinBox::NoButtons</enum>
           </property>
+          <property name="maximum">
+           <number>9</number>
+          </property>
          </widget>
         </item>
         <item>
@@ -3320,6 +3437,9 @@
           <property name="buttonSymbols">
            <enum>QAbstractSpinBox::NoButtons</enum>
           </property>
+          <property name="maximum">
+           <number>9</number>
+          </property>
          </widget>
         </item>
         <item>
@@ -3340,7 +3460,7 @@
            <enum>Qt::NoContextMenu</enum>
           </property>
           <property name="statusTip">
-           <string>技能的目标,从左往右1-3,0为没有目标</string>
+           <string>技能的目标,从左往右1-3,0为不关心目标</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -3380,7 +3500,7 @@
            <enum>QAbstractSpinBox::NoButtons</enum>
           </property>
           <property name="maximum">
-           <number>255</number>
+           <number>15</number>
           </property>
           <property name="displayIntegerBase">
            <number>16</number>
@@ -3429,6 +3549,9 @@
           <property name="buttonSymbols">
            <enum>QAbstractSpinBox::NoButtons</enum>
           </property>
+          <property name="maximum">
+           <number>9</number>
+          </property>
          </widget>
         </item>
         <item>
@@ -3457,6 +3580,9 @@
           <property name="buttonSymbols">
            <enum>QAbstractSpinBox::NoButtons</enum>
           </property>
+          <property name="maximum">
+           <number>9</number>
+          </property>
          </widget>
         </item>
         <item>
@@ -3477,7 +3603,7 @@
            <enum>Qt::NoContextMenu</enum>
           </property>
           <property name="statusTip">
-           <string>技能的目标,从左往右1-3,0为没有目标</string>
+           <string>技能的目标,从左往右1-3,0为不关心目标</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -3548,7 +3674,7 @@
            <enum>QAbstractSpinBox::NoButtons</enum>
           </property>
           <property name="maximum">
-           <number>255</number>
+           <number>15</number>
           </property>
           <property name="displayIntegerBase">
            <number>16</number>
@@ -3772,7 +3898,7 @@
       <item>
        <layout class="QVBoxLayout" name="LAYOUT_FUNC_WIN">
         <item>
-         <widget class="QPushButton" name="BTN_CHECK">
+         <widget class="QPushButton" name="BTN_SCREENSHOT">
           <property name="cursor">
            <cursorShape>PointingHandCursor</cursorShape>
           </property>
@@ -3827,6 +3953,7 @@
     <addaction name="MENU_SCRIPT_GACHA"/>
     <addaction name="MENU_SCRIPT_JACKPOT"/>
     <addaction name="MENU_SCRIPT_MAILFILTER"/>
+    <addaction name="MENU_SCRIPT_SYNTHESIS"/>
    </widget>
    <widget class="QMenu" name="MENU_CONTROL">
     <property name="title">
@@ -3847,14 +3974,16 @@
     <addaction name="MENU_CONTROL_169"/>
     <addaction name="MENU_CONTROL_NOTIFY"/>
     <addaction name="separator"/>
+    <addaction name="MENU_CONTROL_BENCH"/>
     <addaction name="MENU_CONTROL_EXEC"/>
    </widget>
    <widget class="QMenu" name="MENU_SETTINGS">
     <property name="title">
      <string>设置</string>
     </property>
-    <addaction name="MENU_SETTINGS_SPECIALDROP"/>
     <addaction name="MENU_SETTINGS_DEFEATED"/>
+    <addaction name="MENU_SETTINGS_KIZUNAREISOU"/>
+    <addaction name="MENU_SETTINGS_SPECIALDROP"/>
    </widget>
    <addaction name="MENU_FILE"/>
    <addaction name="MENU_SCRIPT"/>
@@ -3886,6 +4015,11 @@
     <string>抽友情</string>
    </property>
   </action>
+  <action name="MENU_SCRIPT_SYNTHESIS">
+    <property name="text">
+     <string>礼装强化</string>
+    </property>
+   </action>
   <action name="MENU_CONTROL_MAPKEY">
    <property name="checkable">
     <bool>true</bool>
@@ -3901,7 +4035,12 @@
   </action>
   <action name="MENU_SCRIPT_MAILFILTER">
    <property name="text">
-    <string>领购粮</string>
+    <string>领狗粮</string>
+   </property>
+  </action>
+  <action name="MENU_CONTROL_BENCH">
+   <property name="text">
+    <string>Bench</string>
    </property>
   </action>
   <action name="MENU_CONTROL_EXEC">
@@ -3909,20 +4048,25 @@
     <string>Execute</string>
    </property>
   </action>
-  <action name="MENU_SETTINGS_SPECIALDROP">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="text">
-    <string>特殊掉落时终止脚本运行</string>
-   </property>
-  </action>
   <action name="MENU_SETTINGS_DEFEATED">
    <property name="checkable">
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>战斗撤退时终止脚本运行</string>
+    <string>战败撤退时终止脚本运行</string>
+   </property>
+  </action>
+  <action name="MENU_SETTINGS_KIZUNAREISOU">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>获得羁绊礼装时终止脚本运行</string>
+   </property>
+  </action>
+  <action name="MENU_SETTINGS_SPECIALDROP">
+   <property name="text">
+    <string>若干特殊掉落后终止脚本运行</string>
    </property>
   </action>
   <action name="MENU_ABOUT_LICENSE">
@@ -4078,7 +4222,7 @@
   <tabstop>BTN_STOP</tabstop>
   <tabstop>BTN_PAUSE</tabstop>
   <tabstop>BTN_STOPLATER</tabstop>
-  <tabstop>BTN_CHECK</tabstop>
+  <tabstop>BTN_SCREENSHOT</tabstop>
   <tabstop>BTN_APPLYALL</tabstop>
  </tabstops>
  <resources/>
@@ -4096,7 +4240,7 @@
    <slot>runMain()</slot>
   </connection>
   <connection>
-   <sender>BTN_CHECK</sender>
+   <sender>BTN_SCREENSHOT</sender>
    <signal>clicked()</signal>
    <receiver>fgoMainWindow</receiver>
    <slot>checkScreenshot()</slot>
@@ -4174,6 +4318,12 @@
    <slot>runGacha()</slot>
   </connection>
   <connection>
+   <sender>MENU_SCRIPT_SYNTHESIS</sender>
+   <signal>triggered()</signal>
+   <receiver>fgoMainWindow</receiver>
+   <slot>runSynthesis()</slot>
+  </connection>
+  <connection>
    <sender>MENU_CONTROL_MAPKEY</sender>
    <signal>triggered(bool)</signal>
    <receiver>fgoMainWindow</receiver>
@@ -4195,7 +4345,13 @@
    <sender>MENU_SCRIPT_MAILFILTER</sender>
    <signal>triggered()</signal>
    <receiver>fgoMainWindow</receiver>
-   <slot>runMailFiltering()</slot>
+   <slot>runMail()</slot>
+  </connection>
+  <connection>
+   <sender>MENU_CONTROL_BENCH</sender>
+   <signal>triggered()</signal>
+   <receiver>fgoMainWindow</receiver>
+   <slot>bench()</slot>
   </connection>
   <connection>
    <sender>MENU_CONTROL_EXEC</sender>
@@ -4210,10 +4366,16 @@
    <slot>stopOnDefeated(bool)</slot>
   </connection>
   <connection>
-   <sender>MENU_SETTINGS_SPECIALDROP</sender>
+   <sender>MENU_SETTINGS_KIZUNAREISOU</sender>
    <signal>triggered(bool)</signal>
    <receiver>fgoMainWindow</receiver>
-   <slot>stopOnSpecialDrop(bool)</slot>
+   <slot>stopOnKizunaReisou(bool)</slot>
+  </connection>
+  <connection>
+   <sender>MENU_SETTINGS_SPECIALDROP</sender>
+   <signal>triggered()</signal>
+   <receiver>fgoMainWindow</receiver>
+   <slot>stopOnSpecialDrop()</slot>
   </connection>
   <connection>
    <sender>MENU_ABOUT_LICENSE</sender>
@@ -4253,33 +4415,36 @@
   </connection>
  </connections>
  <slots>
-  <slot>runBattle()</slot>
-  <slot>runMain()</slot>
-  <slot>resetTeam()</slot>
-  <slot>checkScreenshot()</slot>
-  <slot>getDevice()</slot>
-  <slot>pause(bool)</slot>
-  <slot>stop()</slot>
-  <slot>saveTeam()</slot>
-  <slot>loadTeam(QString)</slot>
-  <slot>explorerHere()</slot>
   <slot>about()</slot>
   <slot>applyAll()</slot>
-  <slot>runUserScript()</slot>
-  <slot>stayOnTop(bool)</slot>
-  <slot>runGacha()</slot>
-  <slot>mapKey(bool)</slot>
-  <slot>stopLater(bool)</slot>
-  <slot>runJackpot()</slot>
-  <slot>runMailFiltering()</slot>
-  <slot>exec()</slot>
-  <slot>stopOnSpecialDrop(bool)</slot>
-  <slot>stopOnDefeated(bool)</slot>
-  <slot>license()</slot>
+  <slot>bench()</slot>
+  <slot>checkScreenshot()</slot>
   <slot>closeToTray(bool)</slot>
+  <slot>exec()</slot>
+  <slot>explorerHere()</slot>
+  <slot>getDevice()</slot>
   <slot>invoke169()</slot>
-  <slot>revoke169()</slot>
-  <slot>reloadTeamup()</slot>
+  <slot>license()</slot>
+  <slot>loadTeam(QString)</slot>
+  <slot>mapKey(bool)</slot>
   <slot>notify()</slot>
+  <slot>pause(bool)</slot>
+  <slot>reloadTeamup()</slot>
+  <slot>resetTeam()</slot>
+  <slot>revoke169()</slot>
+  <slot>runBattle()</slot>
+  <slot>runGacha()</slot>
+  <slot>runJackpot()</slot>
+  <slot>runMail()</slot>
+  <slot>runMain()</slot>
+  <slot>runSynthesis</slot>
+  <slot>runUserScript()</slot>
+  <slot>saveTeam()</slot>
+  <slot>stayOnTop(bool)</slot>
+  <slot>stop()</slot>
+  <slot>stopLater(bool)</slot>
+  <slot>stopOnDefeated(bool)</slot>
+  <slot>stopOnKizunaReisou(bool)</slot>
+  <slot>stopOnSpecialDrop(bool)</slot>
  </slots>
 </ui>

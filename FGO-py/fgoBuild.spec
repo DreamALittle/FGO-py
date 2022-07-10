@@ -4,16 +4,19 @@
 
 block_cipher = None
 
-a = Analysis(['fgoGui.py'],
+a = Analysis(['fgo.py'],
              pathex=[],
              binaries=[],
              datas=[
                  ('fgoImage', 'fgoImage'),
                  ('fgoTeamup.ini', '.'),
                  ('fgoConfig.json', '.'),
-                 ('fgoLogs/.gitkeep', 'fgoLogs'),
+                 ('fgoLog/.gitkeep', 'fgoLog'),
+                 ('fgoTemp/.gitkeep', 'fgoTemp'),
                  ('../LICENSE','.'),
-                 (HOMEPATH+'/airtest/core/android/static', 'airtest/core/android/static')
+                 (HOMEPATH+'/airtest/core/android/static/adb/windows', 'airtest/core/android/static/adb/windows'),
+                 (HOMEPATH+'/airtest/core/android/static/apks', 'airtest/core/android/static/apks'),
+                 (HOMEPATH+'/airtest/core/android/static/stf_libs', 'airtest/core/android/static/stf_libs')
              ],
              hiddenimports=[],
              hookspath=[],
@@ -35,7 +38,7 @@ exe = EXE(pyz,
           bootloader_ignore_signals=False,
           strip=False,
           upx=True,
-          console=False,
+          console=True,
           disable_windowed_traceback=False,
           target_arch=None,
           codesign_identity=None,

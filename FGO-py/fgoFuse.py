@@ -1,6 +1,7 @@
-from fgoControl import ScriptTerminate
+from fgoSchedule import ScriptStop
 from fgoLogging import getLogger
 logger=getLogger('Fuse')
+
 class Fuse:
     def __init__(self,fv=300,logsize=10):
         self.value=0
@@ -12,13 +13,13 @@ class Fuse:
         logger.debug(f'{self.value}')
         if self.value>self.max:
             self.save()
-            raise ScriptTerminate('Fused')
+            raise ScriptStop('Fused')
         self.value+=1
-    def reset(self,check=None):
+    def reset(self,detect=None):
         self.value=0
-        if check is not None and check is not self.log[(self.logptr-1)%self.logsize]:
-            self.log[self.logptr]=check
+        if detect is not None and detect is not self.log[(self.logptr-1)%self.logsize]:
+            self.log[self.logptr]=detect
             self.logptr=(self.logptr+1)%self.logsize
         return True
-    def save(self,path='fgoLogs'):[self.log[(i+self.logptr)%self.logsize].save(f'{path}/FuseLog_{i:02}') for i in range(self.logsize)if self.log[(i+self.logptr)%self.logsize]]
+    def save(self,path='fgoLog'):[self.log[(i+self.logptr)%self.logsize].save(f'{path}/Fuse_{i:02}') for i in range(self.logsize)if self.log[(i+self.logptr)%self.logsize]]
 fuse=Fuse()

@@ -1,4 +1,4 @@
-import os,cv2,platform
+import os,cv2,numpy,platform
 from fgoLogging import getLogger
 logger=getLogger('ImageListener')
 
@@ -35,7 +35,7 @@ if platform.system()=='Windows':
                 self.msg.append([2,file])
             def onUpdated(file):
                 for i in(i for i in range(len(self.msg)-1,-1,-1)if self.msg[i][1]==file):
-                    if self.msg[i][0]==1or self.msg[i][0]==3:return
+                    if self.msg[i][0]==1 or self.msg[i][0]==3:return
                     if self.msg[i][0]==5:
                         temp=self.msg[i-1][1]
                         del self.msg[i-1:i+1]
@@ -60,7 +60,7 @@ if platform.system()=='Windows':
                             if self.ren==file:return
                         break
                 self.msg+=[[4,self.ren],[5,file]]
-            with self.lock:[{1:onCreated,2:onDeleted,3:onUpdated,4:onRenamedFrom,5:onRenamedTo}.get(i[0],lambda _:logger.warning(f'Unknown Operate {i}'))(i[1])for i in x]
+            with self.lock:[{1:onCreated,2:onDeleted,3:onUpdated,4:onRenamedFrom,5:onRenamedTo}.get(i[0],lambda _:logger.warning(f'Unknown Operate {i}'))(i[1])for i in x] # 1:FILE_ACTION_ADDED 2:FILE_ACTION_REMOVED 3:FILE_ACTION_MODIFIED 4:FILE_ACTION_RENAMED_OLD_NAME 5:FILE_ACTION_RENAMED_NEW_NAME
         def get(self):
             with self.lock:ans,self.msg=self.msg,[]
             return ans
@@ -70,21 +70,21 @@ else:
         def get(self):return[]
 class ImageListener(dict):
     def __init__(self,path,ends='.png'):
-        super().__init__((file[:-len(ends)],cv2.imread(path+file))for file in os.listdir(path)if file.endswith(ends))
+        super().__init__((file[:-len(ends)],(lambda x:(x,numpy.max(x,axis=2)>>1))(cv2.imread(path+file)))for file in os.listdir(path)if file.endswith(ends))
         self.path=path
         self.ends=ends
         self.listener=DirListener(path)
     def flush(self):
         lastAction=0
         oldName=None
-        def onCreated(name):self[name]=cv2.imread(self.path+name+self.ends)
+        def onCreated(name):self[name]=(lambda x:(x,numpy.max(x,axis=2)>>1))(cv2.imread(self.path+name+self.ends))
         def onDeleted(name):del self[name]
-        def onUpdated(name):self[name]=cv2.imread(self.path+name+self.ends)
+        def onUpdated(name):self[name]=(lambda x:(x,numpy.max(x,axis=2)>>1))(cv2.imread(self.path+name+self.ends))
         def onRenamedFrom(name):
             nonlocal oldName
             if oldName is not None:del self[oldName]
             oldName=name
-        def onRenamedTo(name):self[name]=self[oldName]if lastAction==4else cv2.imread(self.path+name+self.ends)
+        def onRenamedTo(name):self[name]=self[oldName]if lastAction==4 else(lambda x:(x,numpy.max(x,axis=2)>>1))(cv2.imread(self.path+name+self.ends))
         for action,name in((action,file[:-len(self.ends)])for action,file in self.listener.get()if file.endswith(self.ends)):
             {1:onCreated,2:onDeleted,3:onUpdated,4:onRenamedFrom,5:onRenamedTo}.get(action,lambda _:None)(name)
             logger.info(f'{dict(((1,"Create"),(2,"Delete"),(3,"Update"),(4,"RenameFrom"),(5,"RenameTo"))).get(action,None)} {name}')

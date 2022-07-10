@@ -1,6 +1,10 @@
 {
     "stopOnDefeated": true,
-    "stopOnSpecialDrop": true,
-    "stayOnTop": false,
-    "closeToTray": false
+    "stopOnKizunaReisou": true,
+    "stayOnTop": true,
+    "closeToTray": false,
+    "notifyEnable": false,
+    "notifyParam": {
+        "scKey": ""
+    }
 }

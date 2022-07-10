@@ -1,2 +1,4 @@
 airtest
 PyQt6
+Flask
+tqdm
