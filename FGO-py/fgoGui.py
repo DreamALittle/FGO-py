@@ -4,7 +4,6 @@ from threading import Thread
 from PyQt6.QtCore import Qt,pyqtSignal
 from PyQt6.QtGui import QAction
 from PyQt6.QtWidgets import QApplication,QInputDialog,QMainWindow,QMessageBox,QStyle,QSystemTrayIcon,QMenu
-
 import fgoFunc
 from fgoServerChann import ServerChann
 from fgoMainWindow import Ui_fgoMainWindow
