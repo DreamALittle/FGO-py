@@ -88,12 +88,7 @@ class XDetectBase(metaclass=logMeta(logger)):
         x,y=KEYMAP[key]
         return x-45,y-40,x+45,y+45
     def _fieldClassRect(self,pos):
-        start,end=self._fieldSlot(pos)
-        width=end-start
-        height=self.im.shape[0]
-        if self.im.shape[1]>1400:
-            return start,round(height*.76),min(start+250,self.im.shape[1]),height
-        return start+round(width*.75),round(height*.72),min(start+round(width*1.25),self.im.shape[1]),height
+        return 13+318*pos,618,117+318*pos,702
     def inject(self,img):
         self.im=img
         self.time=time.time()
