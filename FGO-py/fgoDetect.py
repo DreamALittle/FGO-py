@@ -182,7 +182,13 @@ class XDetectBase(metaclass=logMeta(logger)):
         start,end=self._fieldSlot(pos)
         width=end-start
         return(lambda img,cls:min((numpy.min(cv2.matchTemplate(img,i[0],cv2.TM_SQDIFF_NORMED,mask=i[1])),no)for no,(_,portrait,_)in servantImg.items()if servantData[no][0]==cls[0]for i in portrait)[1]if cls else 0)(self._crop((start+round(width*.30),421,start+round(width*.52),490)),self.getFieldServantClassRank(pos))
-    def getFieldServantClassRank(self,pos):return(lambda x:x if x is None else classImg[0][x])(self._select(CLASS[125],self._fieldClassRect(pos),.25))
+    def getFieldServantClassRank(self,pos):
+        rect=self._fieldClassRect(pos)
+        index=self._select(CLASS[125],rect,.25)
+        if index is None and pos==2:
+            grandArcher=classImg[0].index([2,3])
+            index=grandArcher if self._loc(CLASS[125][grandArcher],(max(0,rect[0]-80),rect[1],rect[2],rect[3]))[0]<.35 else None
+        return classImg[0][index] if index is not None else None
     def getFieldServantHp(self,pos):return self._ocrInt((200+317*pos,620,293+317*pos,644))
     def getFieldServantNp(self,pos):return self._ocrInt((220+317*pos,655,271+317*pos,680))
     def getMaterial(self):return(lambda x:{materialImg[i][0]:x.count(i)for i in set(x)-{None}})([self._select(((i[1],None)for i in materialImg),(176+i%7*137,110+i//7*142,253+i%7*137,187+i//7*142),.02)for i in range(1,21)])
