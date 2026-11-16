@@ -169,9 +169,7 @@ class XDetectBase(metaclass=logMeta(logger)):
         if self.enemyGird==0:return(0,0)if pos>2 else(lambda count:(lambda c2:(c2,c2)if c2 else(lambda c0,c1:(c1,c0+c1))(count(self.tmpl.CHARGE0),count(self.tmpl.CHARGE1),))(count(self.tmpl.CHARGE2)))(lambda img:self._count(img,(160+250*pos,67,250+250*pos,88)))
         if self.enemyGird==2:return(lambda count:(lambda c2:(c2,c2)if c2 else(lambda c0,c1:(c1,c0+c1))(count(self.tmpl.CHARGE0_SMALL),count(self.tmpl.CHARGE1_SMALL),))(count(self.tmpl.CHARGE2_SMALL)))(lambda img:self._count(img,(231+pos%3*200-pos//3*100,49+pos//3*99,311+pos%3*200-pos//3*100,72+pos//3*99)))
     def getFieldServant(self,pos):
-        start,end=self._fieldSlot(pos)
-        width=end-start
-        return(lambda img,cls:min((numpy.min(cv2.matchTemplate(img,i[0],cv2.TM_SQDIFF_NORMED,mask=i[1])),no)for no,(_,portrait,_)in servantImg.items()if servantData[no][0]==cls[0]for i in portrait)[1]if cls else 0)(self._crop((start+round(width*.30),421,start+round(width*.52),490)),self.getFieldServantClassRank(pos))
+        return(lambda img,cls:min((numpy.min(cv2.matchTemplate(img,i[0],cv2.TM_SQDIFF_NORMED,mask=i[1])),no)for no,(_,portrait,_)in servantImg.items()if servantData[no][0]==cls[0]for i in portrait)[1]if cls else 0)(self._crop((120+318*pos,421,207+318*pos,490)),self.getFieldServantClassRank(pos))
     def getFieldServantClassRank(self,pos):
         rect=self._fieldClassRect(pos)
         candidates=((CLASS[125],rect,.25),(CLASS[100],rect,.25))
