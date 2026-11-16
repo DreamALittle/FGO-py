@@ -174,7 +174,10 @@ class XDetectBase(metaclass=logMeta(logger)):
         return(lambda img,cls:min((numpy.min(cv2.matchTemplate(img,i[0],cv2.TM_SQDIFF_NORMED,mask=i[1])),no)for no,(_,portrait,_)in servantImg.items()if servantData[no][0]==cls[0]for i in portrait)[1]if cls else 0)(self._crop((start+round(width*.30),421,start+round(width*.52),490)),self.getFieldServantClassRank(pos))
     def getFieldServantClassRank(self,pos):
         rect=self._fieldClassRect(pos)
-        index=self._select(CLASS[125],rect,.25)
+        candidates=((CLASS[125],rect,.25),(CLASS[100],rect,.25))
+        if rect[0]>25:
+            candidates+=((CLASS[125],(rect[0]-25,600,rect[2]+25,720),.3),(CLASS[100],(rect[0]-25,600,rect[2]+25,720),.3))
+        index=next((match for templates,region,threshold in candidates if (match:=self._select(templates,region,threshold)) is not None),None)
         if index is None and pos==2:
             grandArcher=classImg[0].index([2,3])
             index=grandArcher if self._loc(CLASS[125][grandArcher],(max(0,rect[0]-80),rect[1],rect[2],rect[3]))[0]<.35 else None
