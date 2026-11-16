@@ -177,8 +177,8 @@ class XDetectBase(metaclass=logMeta(logger)):
             candidates+=((CLASS[125],(rect[0]-25,600,rect[2]+25,720),.3),(CLASS[100],(rect[0]-25,600,rect[2]+25,720),.3))
         index=next((match for templates,region,threshold in candidates if (match:=self._select(templates,region,threshold)) is not None),None)
         if index is None and pos==2:
-            grandArcher=classImg[0].index([2,3])
-            index=grandArcher if self._loc(CLASS[125][grandArcher],(max(0,rect[0]-80),rect[1],rect[2],rect[3]))[0]<.35 else None
+            grandArcher=classImg[0].index([2,3]) if [2,3] in classImg[0] else None
+            index=grandArcher if grandArcher is not None and self._loc(CLASS[125][grandArcher],(max(0,rect[0]-80),rect[1],rect[2],rect[3]))[0]<.35 else None
         return classImg[0][index] if index is not None else None
     def getFieldServantHp(self,pos):return self._ocrInt((200+317*pos,620,293+317*pos,644))
     def getFieldServantNp(self,pos):return self._ocrInt((220+317*pos,655,271+317*pos,680))
