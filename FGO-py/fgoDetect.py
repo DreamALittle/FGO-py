@@ -79,7 +79,7 @@ class XDetectBase(metaclass=logMeta(logger)):
     def _isListBegin(self,pos):return(lambda x:x[0]>.1 or pos[1]>x[2][1]-5)(self._loc(self.tmpl.LISTBARINV,(pos[0]-19,0,pos[0]+19,720)))
     def _isListEnd(self,pos):return(lambda x:x[0]>.1 or pos[1]<x[2][1]+30)(self._loc(self.tmpl.LISTBAR,(pos[0]-19,0,pos[0]+19,720)))
     def _fieldSlot(self,pos):
-        width=self.im.shape[1]
+        width=min(self.im.shape[1],1215)
         start=round(width*pos/3)
         end=round(width*(pos+1)/3)
         return start,end
@@ -94,6 +94,8 @@ class XDetectBase(metaclass=logMeta(logger)):
         start,end=self._fieldSlot(pos)
         width=end-start
         height=self.im.shape[0]
+        if self.im.shape[1]>1400:
+            return start,round(height*.76),min(start+250,self.im.shape[1]),height
         return start+round(width*.75),round(height*.72),min(start+round(width*1.25),self.im.shape[1]),height
     def inject(self,img):
         self.im=img
