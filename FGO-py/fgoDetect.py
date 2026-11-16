@@ -239,7 +239,6 @@ class XDetectNA(XDetectBase):
     tmpl=IMG_NA
     ocr=OCR.EN
     def isHouguReady(self,that=None):return(lambda that:[not any(that._compare(j,(313+231*i,194,515+231*i,270),.52)for j in(self.tmpl.HOUGUSEALED,self.tmpl.CHARASEALED))and(numpy.mean(self._crop((144+319*i,679,156+319*i,684)))>55 or numpy.mean(that._crop((144+319*i,679,156+319*i,684)))>55)for i in range(3)])((time.sleep(.15),type(self)())[1]if that is None else that)
-    def isSkillReady(self,i,j):return not self._compare(self.tmpl.STILL,(41+318*i+88*j,607,74+318*i+88*j,614),.6)
 class XDetectTW(XDetectBase):
     tmpl=IMG_TW
     ocr=OCR.ZHT
