@@ -1,6 +1,6 @@
 import os,time,cv2,numpy,re,tqdm
 from functools import reduce,wraps
-from fgoConst import PACKAGE_TO_REGION
+from fgoConst import KEYMAP,PACKAGE_TO_REGION
 from fgoFuse import fuse
 from fgoLogging import getLogger,logMeta
 from fgoMetadata import servantData,servantImg,classImg,materialImg,chapterImg,mapImg,questImg
@@ -84,12 +84,9 @@ class XDetectBase(metaclass=logMeta(logger)):
         end=round(width*(pos+1)/3)
         return start,end
     def _fieldSkillRect(self,pos,skill):
-        start,end=self._fieldSlot(pos)
-        width=end-start
-        left=start+round(width*(.00+.27*skill))
-        right=start+round(width*(.17+.27*skill))
-        height=self.im.shape[0]
-        return left,round(height*.73),right,round(height*.80)
+        key=('ASD','FGH','JKL')[pos][skill]
+        x,y=KEYMAP[key]
+        return x-45,y-40,x+45,y+45
     def _fieldClassRect(self,pos):
         start,end=self._fieldSlot(pos)
         width=end-start
@@ -140,9 +137,7 @@ class XDetectBase(metaclass=logMeta(logger)):
     def isSkillCastFailed(self):return self._compare(self.tmpl.SKILLERROR,(504,528,776,597))
     def isSkillNone(self):return self._compare(self.tmpl.CROSS,(1070,45,1105,79))or self._compare(self.tmpl.CROSS,(1093,164,1126,196))
     def isSkillReady(self,i,j):
-        current=not self._compare(self.tmpl.STILL,self._fieldSkillRect(i,j),.2)
-        legacy=not self._compare(self.tmpl.STILL,(35+318*i+88*j,598,55+318*i+88*j,618),.2)
-        return current and legacy
+        return not self._compare(self.tmpl.STILL,self._fieldSkillRect(i,j),.2)
     def isSpecialDropRainbowBox(self):return self._compare(self.tmpl.RAINBOW,(957,2,990,40),.1)
     def isSpecialDropSuspended(self):return self._compare(self.tmpl.CLOSE,(6,14,28,68))
     def isSummonContinue(self):return self._compare(self.tmpl.SUMMONCONTINUE,(642,639,883,707))
