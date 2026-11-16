@@ -199,7 +199,22 @@ class XDetectBase(metaclass=logMeta(logger)):
     def getTeamServantClassRank(self):return[(lambda x:x if x is None else classImg[0][x])(self._select(CLASS[100],(30+200*i+15*(i>2),133,115+200*i+15*(i>2),203)))for i in range(6)]
     def getWeeklyMission(self):XDetectBase._weeklyMission=self._stack(XDetectBase._weeklyMission,self._crop((603,250,1092,710)),157)
     def findChapter(self,chapter):return self._find((chapterImg[chapter],None),(640,90,1230,600))
-    def findFriend(self,img):return self._find(img,(13,166,1233,720),.04)
+    def findFriend(self,img):
+        rect=(13,166,1233,720)
+        if (pos:=self._find(img,rect,.04)) is not None:return pos
+        image,mask=img
+        region=self._crop(rect)
+        best=None
+        for scale in(.7,.75,.8,.85,.9,1.,1.1,1.2,1.25):
+            size=(round(image.shape[1]*scale),round(image.shape[0]*scale))
+            if size[0]>region.shape[1] or size[1]>region.shape[0]:continue
+            scaled=cv2.resize(image,size,interpolation=cv2.INTER_CUBIC)
+            scaledMask=cv2.resize(mask,size,interpolation=cv2.INTER_NEAREST)
+            loc=cv2.minMaxLoc(cv2.matchTemplate(region,scaled,cv2.TM_SQDIFF_NORMED,mask=scaledMask))
+            if best is None or loc[0]<best[0]:best=(loc[0],scale,loc[2])
+        if best is not None and best[0]<.08:
+            return(rect[0]+best[2][0]+round(image.shape[1]*best[1])/2,rect[1]+best[2][1]+round(image.shape[0]*best[1])/2)
+        return None
     def findMail(self,img):return self._find(img,(73,166,920,720),.017)
     def findMapCamera(self,chapter):return numpy.array(cv2.minMaxLoc(cv2.matchTemplate(mapImg[chapter],cv2.resize(self._crop((200,200,1080,520)),(0,0),fx=.3,fy=.3,interpolation=cv2.INTER_CUBIC),cv2.TM_SQDIFF_NORMED))[2])/.3+(440,160)
     @classmethod

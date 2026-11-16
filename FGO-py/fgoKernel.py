@@ -230,6 +230,7 @@ class ClassicTurn:
     def getHouguInfo(self,pos,arg):return self.friendInfo[1][arg]if self.friend[pos]and self.friendInfo[1][arg]>=0 else self.houguInfo[self.orderChange[self.servant[pos]]][arg]
     def castServantSkill(self,pos,skill):
         fgoDevice.device.press(('ASD','FGH','JKL')[pos][skill])
+        self.countDown[0][pos][skill]=1
         if Detect(.7).isSkillNone():
             logger.warning(f'Skill {pos} {skill} Disabled')
             self.countDown[0][pos][skill]=999
@@ -402,6 +403,7 @@ class Turn:
         return''.join(['12345678'[i]for i in hougu+card+list({0,1,2,3,4}-set(card))])
     def castServantSkill(self,pos,skill,target):
         fgoDevice.device.press(('ASD','FGH','JKL')[pos][skill])
+        self.countDown[0][pos][skill]=1
         if Detect(.7).isSkillNone():
             logger.warning(f'Skill {pos} {skill} Disabled')
             self.countDown[0][pos][skill]=999
