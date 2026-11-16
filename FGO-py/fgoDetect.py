@@ -78,6 +78,23 @@ class XDetectBase(metaclass=logMeta(logger)):
             p^=1
     def _isListBegin(self,pos):return(lambda x:x[0]>.1 or pos[1]>x[2][1]-5)(self._loc(self.tmpl.LISTBARINV,(pos[0]-19,0,pos[0]+19,720)))
     def _isListEnd(self,pos):return(lambda x:x[0]>.1 or pos[1]<x[2][1]+30)(self._loc(self.tmpl.LISTBAR,(pos[0]-19,0,pos[0]+19,720)))
+    def _fieldSlot(self,pos):
+        width=self.im.shape[1]
+        start=round(width*pos/3)
+        end=round(width*(pos+1)/3)
+        return start,end
+    def _fieldSkillRect(self,pos,skill):
+        start,end=self._fieldSlot(pos)
+        width=end-start
+        left=start+round(width*(.00+.27*skill))
+        right=start+round(width*(.17+.27*skill))
+        height=self.im.shape[0]
+        return left,round(height*.73),right,round(height*.80)
+    def _fieldClassRect(self,pos):
+        start,end=self._fieldSlot(pos)
+        width=end-start
+        height=self.im.shape[0]
+        return start+round(width*.75),round(height*.72),min(start+round(width*1.25),self.im.shape[1]),height
     def inject(self,img):
         self.im=img
         self.time=time.time()
@@ -120,7 +137,10 @@ class XDetectBase(metaclass=logMeta(logger)):
     def isServantFriend(self,pos):return self._compare(self.tmpl.SUPPORT,(187+318*pos,394,225+318*pos,412))
     def isSkillCastFailed(self):return self._compare(self.tmpl.SKILLERROR,(504,528,776,597))
     def isSkillNone(self):return self._compare(self.tmpl.CROSS,(1070,45,1105,79))or self._compare(self.tmpl.CROSS,(1093,164,1126,196))
-    def isSkillReady(self,i,j):return not self._compare(self.tmpl.STILL,(35+318*i+88*j,598,55+318*i+88*j,618),.2)
+    def isSkillReady(self,i,j):
+        current=not self._compare(self.tmpl.STILL,self._fieldSkillRect(i,j),.2)
+        legacy=not self._compare(self.tmpl.STILL,(35+318*i+88*j,598,55+318*i+88*j,618),.2)
+        return current and legacy
     def isSpecialDropRainbowBox(self):return self._compare(self.tmpl.RAINBOW,(957,2,990,40),.1)
     def isSpecialDropSuspended(self):return self._compare(self.tmpl.CLOSE,(6,14,28,68))
     def isSummonContinue(self):return self._compare(self.tmpl.SUMMONCONTINUE,(642,639,883,707))
@@ -156,12 +176,15 @@ class XDetectBase(metaclass=logMeta(logger)):
     def getEnemyNp(self,pos):
         if self.enemyGird==0:return(0,0)if pos>2 else(lambda count:(lambda c2:(c2,c2)if c2 else(lambda c0,c1:(c1,c0+c1))(count(self.tmpl.CHARGE0),count(self.tmpl.CHARGE1),))(count(self.tmpl.CHARGE2)))(lambda img:self._count(img,(160+250*pos,67,250+250*pos,88)))
         if self.enemyGird==2:return(lambda count:(lambda c2:(c2,c2)if c2 else(lambda c0,c1:(c1,c0+c1))(count(self.tmpl.CHARGE0_SMALL),count(self.tmpl.CHARGE1_SMALL),))(count(self.tmpl.CHARGE2_SMALL)))(lambda img:self._count(img,(231+pos%3*200-pos//3*100,49+pos//3*99,311+pos%3*200-pos//3*100,72+pos//3*99)))
-    def getFieldServant(self,pos):return(lambda img,cls:min((numpy.min(cv2.matchTemplate(img,i[0],cv2.TM_SQDIFF_NORMED,mask=i[1])),no)for no,(_,portrait,_)in servantImg.items()if servantData[no][0]==cls[0]for i in portrait)[1]if cls else 0)(self._crop((120+318*pos,421,207+318*pos,490)),self.getFieldServantClassRank(pos))
-    def getFieldServantClassRank(self,pos):return(lambda x:x if x is None else classImg[0][x])(self._select(CLASS[125],(13+318*pos,618,117+318*pos,702)))
+    def getFieldServant(self,pos):
+        start,end=self._fieldSlot(pos)
+        width=end-start
+        return(lambda img,cls:min((numpy.min(cv2.matchTemplate(img,i[0],cv2.TM_SQDIFF_NORMED,mask=i[1])),no)for no,(_,portrait,_)in servantImg.items()if servantData[no][0]==cls[0]for i in portrait)[1]if cls else 0)(self._crop((start+round(width*.30),421,start+round(width*.52),490)),self.getFieldServantClassRank(pos))
+    def getFieldServantClassRank(self,pos):return(lambda x:x if x is None else classImg[0][x])(self._select(CLASS[125],self._fieldClassRect(pos),.25))
     def getFieldServantHp(self,pos):return self._ocrInt((200+317*pos,620,293+317*pos,644))
     def getFieldServantNp(self,pos):return self._ocrInt((220+317*pos,655,271+317*pos,680))
     def getMaterial(self):return(lambda x:{materialImg[i][0]:x.count(i)for i in set(x)-{None}})([self._select(((i[1],None)for i in materialImg),(176+i%7*137,110+i//7*142,253+i%7*137,187+i//7*142),.02)for i in range(1,21)])
-    def getSkillTargetCount(self):return(lambda x:numpy.bincount(numpy.diff(x))[1]+x[0])(cv2.dilate(numpy.max(cv2.threshold(numpy.max(self._crop((306,320,973,547)),axis=2),67,1,cv2.THRESH_BINARY)[1],axis=0).reshape(1,-1),numpy.ones((1,66),numpy.uint8)).ravel())if self._compare(self.tmpl.CROSS,(980,0,1280,300))else 0
+    def getSkillTargetCount(self):return(lambda x:numpy.count_nonzero(numpy.diff(x)==1)+x[0])(cv2.dilate(numpy.max(cv2.threshold(numpy.max(self._crop((306,320,973,547)),axis=2),67,1,cv2.THRESH_BINARY)[1],axis=0).reshape(1,-1),numpy.ones((1,66),numpy.uint8)).ravel())if self._compare(self.tmpl.CROSS,(980,0,1280,300))else 0
     @retryOnError()
     @validate()
     def getStage(self):return self._ocrInt((884,14,902,37))
