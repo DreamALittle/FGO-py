@@ -206,7 +206,7 @@ class ClassicTurn:
         if turn==1:
             Detect.cache.setupServantDead(self.friend)
             self.stageTotal=Detect.cache.getStageTotal()
-            self.servant=[6 if self.servant[i]>=6 or Detect.cache.getFieldServantClassRank(i)is None else self.servant[i]for i in range(3)]
+            self.servant=[6 if self.servant[i]>=6 else self.servant[i]for i in range(3)]
         else:
             for i in(i for i in range(3)if self.servant[i]<6 and Detect.cache.isServantDead(i,self.friend[i])):
                 self.servant[i]=max(self.servant)+1
